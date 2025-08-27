@@ -29,7 +29,7 @@ h1 {
     flex-direction: column;
 }
 span {
-    background: linear-gradient(to right, #007BFF, #00BFFF, #00FFFF, #00FFFF);
+    background: linear-gradient(to right, #007BFF, #00AFFF, #00BFFF);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2.5rem;
