@@ -29,7 +29,7 @@ h1 {
     flex-direction: column;
 }
 span {
-    background: linear-gradient(to right, #007BFF, #00BFFF, #00FFFF, #00FFFF);
+    background: linear-gradient(to right, #007BFF, #00BFFF, #00aFFF, #00aFFF, #00AFFF);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2.5rem;
@@ -40,11 +40,11 @@ ul {
     flex-direction: column;
     gap: 4rem;
 }
+
 a {
     text-decoration: none;
     font-size: 1.5rem;
     padding: 1rem 2rem;
-    border-radius: 5rem;
     background-color: var(--color-azul);
     color: var(--color-white);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -52,5 +52,10 @@ a {
 .iniciar{
     background-color: var(--color-verde);
     color: var(--color-white);
+    padding: 1rem 70px;
 }
-
+.creditos{
+    background-color: var(--color-azul);
+    color: var(--color-white);
+    padding: 1rem 59px;
+}
