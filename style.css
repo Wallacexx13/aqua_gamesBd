@@ -30,7 +30,7 @@ h1 {
 }
 span {
     background: linear-gradient(to right, #007BFF, #00BFFF, #00FFFF, #00FFFF);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2.5rem;
 }
