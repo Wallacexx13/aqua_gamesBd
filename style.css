@@ -22,14 +22,12 @@ body {
     text-align: center;
     color: var(--color-black);
 }
-h1 {
-    font-size: 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+img {
+    width: 300px;
+    height: auto;
 }
 span {
-    background: linear-gradient(to right, #007BFF, #00AFFF, #00BFFF);
+    background: linear-gradient(to right, #007BFF, #00BFFF, #00FFFF, #00FFFF);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 2.5rem;
@@ -40,11 +38,12 @@ ul {
     flex-direction: column;
     gap: 4rem;
 }
+
 a {
     text-decoration: none;
     font-size: 1.5rem;
     padding: 1rem 2rem;
-    border-radius: 5rem;
+    border-radius: 8px;
     background-color: var(--color-azul);
     color: var(--color-white);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -52,5 +51,18 @@ a {
 .iniciar{
     background-color: var(--color-verde);
     color: var(--color-white);
+    padding: 1rem 70px;
 }
-
+.creditos{
+    background-color: var(--color-azul);
+    color: var(--color-white);
+    padding: 1rem 59px;
+}
+.spline-viewer {
+    width: 600px;
+    height: 400px;
+    z-index: -1;
+    position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+}
