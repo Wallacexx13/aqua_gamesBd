@@ -46,7 +46,7 @@ Queremos unir **educação** e **entretenimento** para tornar o aprendizado mais
 
 👨‍💻 Wallace – Scrum Master
 
-🎨 Victor – Front-endG
+🎨 Vitor – Front-endG
 
 🔧 Thiago – Back-end
 
