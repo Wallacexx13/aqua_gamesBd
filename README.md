@@ -52,4 +52,4 @@ Queremos unir **educação** e **entretenimento** para tornar o aprendizado mais
 
 🔧 Emellyn – Back-end
 
-🧪 Wesley – Tester
+🧪 Weslley – Tester
