@@ -42,14 +42,14 @@ Queremos unir **educação** e **entretenimento** para tornar o aprendizado mais
 
 
 
-🧑‍💼 Fread – Product Owner (PO)
+🧑‍💼 Fred – Product Owner (PO)
 
 👨‍💻 Wallace – Scrum Master
 
 🎨 Vitor – Front-end
 
-🔧 Thiago – Back-end
+🔧 Tiago – Back-end
 
-🔧 Emellyn – Back-end
+🔧 Emily – Back-end
 
 🧪 Weslley – Tester
