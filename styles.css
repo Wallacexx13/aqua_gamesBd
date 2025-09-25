@@ -6,6 +6,9 @@
 
 body {
   font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1.6rem;
   background-color: #111;
   color: white;
   display: flex;
@@ -51,7 +54,8 @@ header {
   color: #00f5ff;
   text-shadow: 0 0 10px #00f5ff;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
 }
@@ -88,7 +92,7 @@ a{
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
-.botoes{
+.botoes {
   display: flex;
   gap: 2rem;
   margin-top: 1.5rem;
