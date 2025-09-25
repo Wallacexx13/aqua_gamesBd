@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* ===== ESTILIZAÇÕES GERAIS ===== */
 body {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
@@ -17,7 +17,7 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+/* ===== CABEÇALHO E NAVEGAÇÃO ===== */
 header {
   width: 100%;
   position: fixed;
@@ -55,7 +55,7 @@ header {
   text-shadow: 0 0 10px #00f5ff;
 }
 
-
+/* ===== ÁREA PRINCIPAL ===== */
 .container {
   display: flex;
   flex-direction: column;
@@ -68,14 +68,9 @@ header {
   padding: 2rem;
 }
 
-h1 {
-  font-size: 3.8rem;
-  font-weight: bold;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+h2 {
+  color: #6a5acd;
+  margin-bottom: 20px;
 }
 
 a {
@@ -83,7 +78,106 @@ a {
   color: white;
 }
 
+section {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      z-index: 10;
+    }
 
+/* ===== ÁREA DA IMAGEM ===== */
+.image-area {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+}
+
+.image-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #ddd;
+}
+
+/* ===== PALAVRA COM LACUNA ===== */
+#word-display {
+  color: #000;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+}
+
+/* ===== OPÇÕES DE LETRAS ===== */
+#letters-area {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.letter {
+  background: #6a5acd;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.letter:hover {
+  background: #836fff;
+}
+
+/* ===== FEEDBACK ===== */
+#feedback {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.feedback.correct {
+  color: green;
+}
+
+.feedback.wrong {
+  color: red;
+}
+
+/* ===== BOTÃO PRÓXIMA FASE ===== */
+#proxima-fase {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: none;
+}
+
+#proxima-fase:hover {
+  background: #836fff;
+}
+
+/* ===== PLACAR ===== */
+.pontuacao {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* ===== FUNDO COM SPLINE ===== */
 .spline-bg {
   position: fixed;
   top: 0;
@@ -92,7 +186,7 @@ a {
   height: 100%;
   z-index: -1;
 }
-
+/* ===== RODAPÉ ===== */
 .rodape {
   position: fixed;
   bottom: 0;

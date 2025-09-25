@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./stylefase1.css">
+    <script src="jogo01.js" defer></script>
     <title>Primeira Fase</title>
 </head>
 
@@ -29,19 +30,38 @@
     </header>
     <!-- Seção principal da tela de inicio-->
     <section class="container">
-        <h1>Complete a palavra da imagem</h1>
-        <section class="imagem-palavra">
-            <img src="" alt="Imagem de uma bola de futebol">
-        </section>
-        <!-- Bg spline-->
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.57/build/spline-viewer.js"></script>
-        <spline-viewer class="spline-bg"
-            url="https://prod.spline.design/O3jUWXdlRjWOgWsN/scene.splinecode"></spline-viewer>
-        <!-- rodape da pagina-->
+        <h2 id="fase-titulo">Fase 1 – Vogais</h2>
 
-        <footer class="rodape">
-            <p>&copy; created by Aqua games 🌊</p>
-        </footer>
+        <!-- Área da imagem -->
+        <div class="image-area">
+            <img src="imagens/anel.png" alt="Imagem do desafio">
+        </div>
+
+        <!-- Palavra com lacunas -->
+        <div id="word-display">_ N E L</div>
+
+        <!-- Opções de letras -->
+        <div id="letters-area"></div>
+
+        <!-- Feedback -->
+        <div id="feedback"></div>
+
+        <!-- Botão próxima fase -->
+        <button id="proxima-fase">Próxima Palavra</button>
+
+        <!-- Placar -->
+        <div class="pontuacao">🏆 0</div>
+
+    </section>
+
+
+    <!-- Bg spline-->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.57/build/spline-viewer.js"></script>
+    <spline-viewer class="spline-bg" url="https://prod.spline.design/O3jUWXdlRjWOgWsN/scene.splinecode"></spline-viewer>
+    <!-- rodape da pagina-->
+    <footer class="rodape">
+        <p>&copy; created by Aqua games 🌊</p>
+    </footer>
 </body>
 
 </html>
