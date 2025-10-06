@@ -13,18 +13,18 @@ botaoProximaFase.addEventListener("click", () => {
  
  const fases = {
     facil: [
-      { palavra: "GATO", imagem: "imagem/gato.jpg" },
-      { palavra: "CASA", imagem: "imagem/casa.jpg" },
-      { palavra: "BOLA", imagem: "imagem/OIP.webp" },
-      { palavra: "LÁPIS", imagem: "imagem/lapis.webp" },
+      { palavra: "GATO", imagem: "../img/gato02.jpg" },
+      { palavra: "CASA", imagem: "../img/casa02.jpg" },
+      { palavra: "BOLA", imagem: "../img/OIP.webp" },
+      { palavra: "LÁPIS", imagem: "../img/lapis.webp" },
     ],
     medio: [
-      { palavra: "CADEIRA", imagem: "imagem/cadeira.webp" },
-      { palavra: "BANANA", imagem: "imagem/banana.jpg" },
+      { palavra: "CADEIRA", imagem: "../img/cadeira.webp" },
+      { palavra: "BANANA", imagem: "../img/banana02.jpg" },
     ],
     dificil: [
-      { palavra: "ELEFANTE", imagem: "imagem/elefante.jpg" },
-      { palavra: "ABACAXI", imagem: "imagem/abacaxi.jpg" }
+      { palavra: "ELEFANTE", imagem: "../img/elefante.jpg" },
+      { palavra: "ABACAXI", imagem: "../img/abacaxi.jpg" }
     ]
   };
 

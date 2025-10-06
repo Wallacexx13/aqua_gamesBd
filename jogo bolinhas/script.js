@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
   // Elementos do DOM
   const ballsContainer = document.getElementById('balls-container');
