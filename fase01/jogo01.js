@@ -10,26 +10,26 @@ function embaralhar(array) {
 // ================== OBJETO DE FASES ==================
 const fases = {
   facil: [
-    { palavra: "ANEL", imagem: "imagens/anel.png" },
-    { palavra: "CELULAR", imagem: "imagens/celular.png" },
-    { palavra: "UVA", imagem: "imagens/uva.png" },
-    { palavra: "SAPATO", imagem: "imagens/sapato.png" },
-    { palavra: "IGREJA", imagem: "imagens/igreja.png" }
+    { palavra: "ANEL", imagem: "../img/anel.png" },
+    { palavra: "CELULAR", imagem: "../img/celular.png" },
+    { palavra: "UVA", imagem: "../img/uva.png" },
+    { palavra: "SAPATO", imagem: "../img/sapato.png" },
+    { palavra: "IGREJA", imagem: "../img/igreja.png" }
   ],
   medio: [
-    { palavra: "BOLA", imagem: "imagens/bola.png" },
-    { palavra: "LATA", imagem: "imagens/lata.png" },
-    { palavra: "GATO", imagem: "imagens/gato.png" },
-    { palavra: "MESA", imagem: "imagens/mesa.png" },
-    { palavra: "DADO", imagem: "imagens/dado.png" }
+    { palavra: "BOLA", imagem: "../img/bola.png" },
+    { palavra: "LATA", imagem: "../img/lata.png" },
+    { palavra: "GATO", imagem: "../img/gato.png" },
+    { palavra: "MESA", imagem: "../img/mesa.png" },
+    { palavra: "DADO", imagem: "../img/dado.png" }
   ],
   dificil: [
-    { palavra: "PATO", imagem: "imagens/pato.png" },
-    { palavra: "TREM", imagem: "imagens/trem.png" },
-    { palavra: "BANANA", imagem: "imagens/banana.png" },
-    { palavra: "TIGRE", imagem: "imagens/tigre.png" },
-    { palavra: "CASA", imagem: "imagens/casa.png" },
-    { palavra: "CAVALO", imagem: "imagens/cavalo.png" }
+    { palavra: "PATO", imagem: "../img/pato.png" },
+    { palavra: "TREM", imagem: "../img/trem.png" },
+    { palavra: "BANANA", imagem: "../img/banana.png" },
+    { palavra: "TIGRE", imagem: "../img/tigre.png" },
+    { palavra: "CASA", imagem: "../img/casa.png" },
+    { palavra: "CAVALO", imagem: "../img/cavalo.png" }
   ]
 };
 

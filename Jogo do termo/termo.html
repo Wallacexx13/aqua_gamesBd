@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Alfabetização</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .game-container {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .image-area {
+      margin-bottom: 20px;
+    }
+
+    .image-area img {
+      max-width: 200px;
+      border-radius: 10px;
+    }
+
+    .letters-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .letter {
+      background: #e3e8ef;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .letter:hover {
+      background: #cbd5e1;
+    }
+
+    .word-display {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      letter-spacing: 3px;
+      min-height: 30px;
+    }
+
+    .feedback {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .wrong {
+      color: red;
+    }
+
+    .pontuacao {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jogo de Alfabetização</h1>
+
+    <div class="pontuacao"> 🏆0</div>
+  <div class="game-container">
+    <div class="image-area">
+      <!-- Exemplo: você troca essa imagem pelo JS dinamicamente -->
+      <img src="imagem/OIP.webp" alt="Imagem do objeto">
+    </div>
+
+    <div class="word-display" id="word-display">_ _ _ _</div>
+
+    <div class="letters-area" id="letters-area">
+    </div>
+
+    <div class="feedback" id="feedback"></div>
+  </div>
+  <button id="proxima-fase" style="margin-top: 20px; padding: 10px 15px; font-size:16px;">Próxima Fase</button>
+
+  <script src="jogo.js"></script>
+</body>
+</html>
