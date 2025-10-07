@@ -1,23 +1,41 @@
+/* Importação das fontes para a estética do jogo */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* ===== ESTILIZAÇÕES GERAIS ===== */
+
+/* ===== ESTILIZAÇÕES GERAIS E FUNDO ANIMADO ===== */
 body {
   font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
   line-height: 1.6rem;
-  background-color: #111;
-  color: white;
+  /* Fundo escuro com gradiente sutil animado */
+  background: linear-gradient(135deg, #0a0a14, #12121f, #0a0a14);
+  background-size: 300% 300%;
+  animation: gradientShift 20s ease infinite;
+  color: #e0e0ff; /* Cor clara azulada */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  padding: 80px 0 50px; /* Garante espaço para header e footer fixos */
+  overflow-x: hidden;
 }
-/* ===== CABEÇALHO E NAVEGAÇÃO ===== */
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== CABEÇALHO E NAVEGAÇÃO - Glassmorphism/Neon ===== */
 header {
   width: 100%;
   position: fixed;
@@ -33,148 +51,194 @@ header {
   padding: 1rem 0;
   display: flex;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  z-index: 10;
+  /* Glassmorphism */
+  background: rgba(10, 10, 30, 0.7); 
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(70, 70, 150, 0.4);
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
 }
 
-.navbar li {
-  cursor: pointer;
+.navbar a {
+  font-family: 'Orbitron', sans-serif; 
   font-weight: 500;
-  transition: color 0.3s ease;
+  color: #ccf;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 5px 0;
 }
 
-.navbar li:hover {
-  color: #00f5ff;
-  text-shadow: 0 0 10px #00f5ff;
+.navbar a:hover {
+  color: #00f5ff; /* Ciano Neon */
+  text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
 }
 
-/* ===== ÁREA PRINCIPAL ===== */
+/* ===== ÁREA PRINCIPAL - CARD DE JOGO (MAIS COMPACTO) ===== */
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 15px;
   text-align: center;
   position: relative;
-  z-index: 1;
-  padding: 2rem;
+  z-index: 2; 
+  padding: 30px 40px;
+  max-width: 450px; /* Mantém a área do jogo focada */
+  
+  /* Estilo do Card Central (Glassmorphism + Neon) */
+  background: rgba(10, 10, 30, 0.85); 
+  border: 1px solid rgba(70, 70, 150, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 
+    0 4px 60px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(130, 130, 255, 0.4); 
 }
 
-h2 {
-  color: #6a5acd;
+#fase-titulo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
   margin-bottom: 20px;
+  color: #8c8cff; /* Cor de destaque */
+  text-shadow: 0 0 10px rgba(130, 130, 255, 0.8);
+  border-bottom: 2px solid #4a4a8a;
+  padding-bottom: 8px;
+  width: 100%;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-
-section {
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 90%;
-      max-width: 500px;
-      text-align: center;
-      z-index: 10;
-    }
-
-/* ===== ÁREA DA IMAGEM ===== */
+/* ===== ELEMENTOS DO JOGO ===== */
 .image-area {
   width: 150px;
   height: 150px;
-  margin: 0 auto 20px;
+  margin: 15px auto 25px;
+  border: 3px solid #00f5ff; /* Borda Neon Ciano */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.7);
+  background: #000;
 }
 
 .image-area img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  background: #ddd;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* ===== PALAVRA COM LACUNA ===== */
+/* Palavra com lacunas */
 #word-display {
-  color: #000;
-  font-size: 28px;
-  font-weight: bold;
-  letter-spacing: 8px;
-  margin-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
+  color: #00f5ff; /* Ciano Neon */
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 12px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border-bottom: 3px solid #00f5ff50;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
 }
 
-/* ===== OPÇÕES DE LETRAS ===== */
+/* Opções de letras (Teclado) */
 #letters-area {
   display: flex;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 .letter {
-  background: #6a5acd;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 15px 20px;
-  border-radius: 10px;
+  /* Estilo do Botão Neon */
+  background: #333355; 
+  color: #ccf;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 10px 15px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.2s ease;
+  border: 2px solid #6a6a99;
+  box-shadow: 0 0 8px rgba(130, 130, 255, 0.4);
 }
 
-.letter:hover {
-  background: #836fff;
+.letter:hover:not(.disabled) {
+  background: #4a4a7a;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.9);
 }
 
-/* ===== FEEDBACK ===== */
+.disabled {
+    background: #1a1a2e;
+    color: #444;
+    cursor: default;
+    border-color: #333;
+    opacity: 0.5;
+}
+
+/* Feedback */
 #feedback {
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: 1.2rem;
+  margin-top: 5px;
   font-weight: bold;
+  height: 25px; /* Reserva espaço para evitar pulos de layout */
 }
 
 .feedback.correct {
-  color: green;
+  color: #38ff38; /* Verde Neon */
+  text-shadow: 0 0 10px rgba(56, 255, 56, 0.8);
 }
 
 .feedback.wrong {
-  color: red;
+  color: #ff3838; /* Vermelho Neon */
+  text-shadow: 0 0 10px rgba(255, 56, 56, 0.8);
 }
 
-/* ===== BOTÃO PRÓXIMA FASE ===== */
+/* Botão Próxima Fase */
 #proxima-fase {
-  margin-top: 20px;
-  padding: 12px 20px;
-  font-size: 16px;
-  background: #6a5acd;
+  /* Estilo Botão Neon Principal */
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #6a5acd, #8c8cff);
   color: white;
-  border: none;
-  border-radius: 8px;
+  border: 2px solid #00f5ff;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
   display: none;
 }
 
 #proxima-fase:hover {
-  background: #836fff;
+  background: linear-gradient(90deg, #8c8cff, #a0a0ff);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 25px rgba(0, 245, 255, 1),
+    0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* ===== PLACAR ===== */
+/* Placar */
 .pontuacao {
+  font-family: 'Orbitron', sans-serif;
   margin-top: 20px;
-  font-size: 20px;
+  padding: 8px 15px;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #444;
+  color: #38ff38; /* Verde Neon */
+  border: 2px solid #38ff38;
+  border-radius: 10px;
+  background: rgba(40, 40, 80, 0.6);
+  text-shadow: 0 0 10px rgba(56, 255, 56, 0.8);
 }
 
 /* ===== FUNDO COM SPLINE ===== */
@@ -184,20 +248,41 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0; 
 }
-/* ===== RODAPÉ ===== */
+
+/* ===== RODAPÉ - Estilo Neon Sutil ===== */
 .rodape {
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
   padding: 0.8rem 0;
-  background: rgba(0, 0, 0, 0.4);
+  /* Glassmorphism */
+  background: rgba(10, 10, 30, 0.7);
   backdrop-filter: blur(10px);
   color: #aaa;
   font-size: 0.9rem;
   z-index: 5;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-shadow: 0 0 6px rgba(0, 255, 255, 0.5);
+  border-top: 1px solid rgba(70, 70, 150, 0.4);
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 500px) {
+    .container {
+        max-width: 95%;
+        padding: 20px 20px;
+    }
+    #fase-titulo {
+        font-size: 1.5rem;
+    }
+    #word-display {
+        font-size: 30px;
+        letter-spacing: 10px;
+    }
+    .letter {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
 }
