@@ -9,21 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../fase01/stylefase1.css">
 </head>
 
 <body>
-  <header>
-        <!-- Barra de navegação -->
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li><a href="../aqua_games.html">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Configurações</a></li>
-                <li><a href="#">Ver Instruções</a></li>
-            </ul>
-        </nav>
-    </header>
   <div class="game-container">
     <div class="header">
       <h1>Bolinha Matemática</h1>
@@ -56,19 +44,18 @@
     </div>
 
     <div class="controls">
-      <button id="check-btn">Verificar Respostas</button>
+
       <button id="next-btn">Próximo Nível</button>
       <button id="reset-btn">Reiniciar Jogo</button>
+
     </div>
 
     <div class="feedback" id="feedback"></div>
   </div>
   <audio id="error-sound" src="som/erro.mp3" preload="auto"></audio>
   <audio id="success-sound" src="som/next-level.mp3" preload="auto"></audio>
+  <audio id="victory" src="som/victory.mp3"></audio>
 
-  <footer class="rodape">
-        <p>&copy; created by Aqua games 🌊</p>
-    </footer>
   <script src="script.js"></script>
 </body>
 

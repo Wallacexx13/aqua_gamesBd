@@ -256,7 +256,7 @@ button {
 
 .laranja,
 .ball.laranja {
-  background: linear-gradient(145deg, #e67e22, #d35400);
+  background: linear-gradient(145deg, #ff781f, #ff6600);
   color: white;
 }
 
@@ -290,7 +290,6 @@ button {
   background: linear-gradient(145deg, #ffe0b2, #ffcc80); /* Seu orange */
   border-color: #e67e22;
 }
-
 
 
 /* Responsividade */
