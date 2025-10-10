@@ -1,40 +1,87 @@
-/* CSS para a página Sobre Nós com estilo Glassmorphism/Neon */
-body{
-    /* Fundo escuro com gradiente sutil */
-    background: linear-gradient(135deg, #0a0a14, #12121f, #0a0a14);
-    color: #e0e0ff; /* Cor clara azulada */
-
+html {
+    overflow-y: auto;
 }
 
+/* RESET COMPLETO das regras do index.css */
+body.sobre-nos-page {
+    overflow-y: auto;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a14, #12121f, #0a0a14);
+    color: #e0e0ff;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* HEADER FIXO - mas garantindo que não sobreponha */
+body.sobre-nos-page header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+body.sobre-nos-page .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 30, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(70, 70, 150, 0.4);
+    z-index: 1000;
+}
+
+/* CONTAINER - com margem superior para o header */
 .container {
     letter-spacing: .05rem;
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    text-align: center;
     padding: 3rem;
-    /* Estilo do Card Central (Glassmorphism + Neon) */
     background: rgba(10, 10, 30, 0.85);
     border: 1px solid rgba(70, 70, 150, 0.4);
     box-shadow: 0 0 20px rgba(70, 70, 150, 0.4);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     z-index: 1;
-    margin: 2rem 0;
+    margin: 100px auto 80px auto; /* MARGEM SUPERIOR para o header fixo */
+    position: relative;
+}
+
+/* RODAPÉ FIXO */
+body.sobre-nos-page .rodape {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(10, 10, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(70, 70, 150, 0.4);
+    z-index: 1000;
 }
 
 h1 {
     font-size: 3.8rem;
     font-weight: bold;
     text-align: center;
-    position: relative;
-    z-index: 2;
     color: #fff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
     margin-bottom: 1rem;
+    letter-spacing: .3rem;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
+    margin: 1rem 0;
+    letter-spacing: .2rem;
 }
 
 ul.integrantes-list {
@@ -53,4 +100,5 @@ span {
     color: #00f5ff;
     font-weight: 500;
 }
+
 
