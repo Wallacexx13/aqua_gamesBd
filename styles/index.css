@@ -19,6 +19,7 @@ body {
   align-items: center;
   overflow-y: auto; /* Mostra apenas quando necessário */
   min-height: 100vh;
+  
 }
 
 /* ===== CABEÇALHO E NAVEGAÇÃO - Glassmorphism/Neon ===== */

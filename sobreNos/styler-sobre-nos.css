@@ -1,36 +1,11 @@
 html {
     overflow-y: auto;
 }
-
-/* RESET COMPLETO das regras do index.css */
-body.sobre-nos-page {
-    overflow-y: auto;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0a0a14, #12121f, #0a0a14);
-    color: #e0e0ff;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    height: auto;
-    display: block;
-    font-family: 'Orbitron', sans-serif;
-}
-
 /* HEADER FIXO - mas garantindo que não sobreponha */
 body.sobre-nos-page header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
-}
-
-body.sobre-nos-page .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(10, 10, 30, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(70, 70, 150, 0.4);
     z-index: 1000;
 }
 
@@ -49,7 +24,6 @@ body.sobre-nos-page .navbar {
     backdrop-filter: blur(10px);
     border-radius: 10px;
     z-index: 1;
-    margin: 100px auto 80px auto; /* MARGEM SUPERIOR para o header fixo */
     position: relative;
 }
 

@@ -7,26 +7,25 @@
   <title>Matemática Divertida - Jogo de Bolinhas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../fase01/stylefase1.css">
+  <link rel="stylesheet" href="../styles/index.css">
 </head>
 
 <body>
-  <header>
-        <!-- Barra de navegação -->
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li><a href="../aqua_games.html">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Configurações</a></li>
-                <li><a href="#">Ver Instruções</a></li>
-            </ul>
-        </nav>
-    </header>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="../aqua_games.html">Home</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Configurações</a></li>
+      <li><a href="#">Ver Instruções</a></li>
+    </ul>
+  </nav>
+  </header>
   <div class="game-container">
     <div class="header">
-      <h1>Bolinha Matemática</h1>
+      <h1 id="fase-titulo">Bolinha Matemática</h1>
       <p>Arraste as bolinhas para resolver os problemas</p>
     </div>
 
@@ -65,11 +64,9 @@
   </div>
   <audio id="error-sound" src="som/erro.mp3" preload="auto"></audio>
   <audio id="success-sound" src="som/next-level.mp3" preload="auto"></audio>
-
-  <footer class="rodape">
-        <p>&copy; created by Aqua games 🌊</p>
-    </footer>
   <script src="script.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js"></script>
+
 </body>
 
 </html>
