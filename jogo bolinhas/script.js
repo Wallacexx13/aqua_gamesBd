@@ -1,91 +1,83 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
-  // Elementos do DOM
   const ballsContainer = document.getElementById('balls-container');
   const boxContainer = document.getElementById('box-container');
-  const checkBtn = document.getElementById('check-btn');
   const nextBtn = document.getElementById('next-btn');
   const resetBtn = document.getElementById('reset-btn');
   const feedbackEl = document.getElementById('feedback');
   const levelEl = document.getElementById('level');
   const scoreEl = document.getElementById('score');
   const solvedEl = document.getElementById('solved');
-
   const errorSound = document.getElementById('error-sound');
   const successSound = document.getElementById('success-sound');
+  const victorySound = document.getElementById('victory');
 
-  // Estado do jogo (adicionado: levelCompleted para evitar múltiplos increments)
+  // Estado do jogo
   let gameState = {
     level: 1,
     score: 0,
     problemsSolved: 0,
     problems: [],
     balls: [],
-    levelCompleted: false, // Flag para controlar se o nível já foi acertado
+    levelCompleted: false, // Flag para controlar se o nível já foi acertado (mantido para evitar múltiplas verificações)
   };
 
   const colors = ['vermelho', 'azul', 'verde', 'amarelo', 'roxo', 'laranja'];
 
   initGame();
 
-  checkBtn.addEventListener('click', checkAnswers);
-  nextBtn.addEventListener('click', nextLevel);
+  nextBtn.addEventListener('click', verifyAndAdvance);
   resetBtn.addEventListener('click', resetGame);
 
   // Função para determinar a dificuldade baseada no level
   function getDifficulty(level) {
-    if (level <= 3) return 'easy';
-    if (level <= 6) return 'medium';
-    return 'hard';
+    if (level <= 3) return 'easy'; // Primeiros 3 níveis: contagem simples, bolinhas peso 1, sem números visíveis
+    return 'hard'; // A partir do nível 4: operações simples, bolinhas com números visíveis (1-2)
   }
 
-  // Inicializa o jogo (adicionado: reset levelCompleted)
+  // Inicializa o jogo
   function initGame() {
     ballsContainer.innerHTML = '';
     boxContainer.innerHTML = '';
 
     // Reset flag para novo nível
     gameState.levelCompleted = false;
-    checkBtn.disabled = false; // Reabilita o botão check para novo nível
 
     generateProblems();
     generateBalls();
     updateStats();
-    nextBtn.disabled = true;
+    feedbackEl.textContent = ''; // Limpa feedback no início
+    feedbackEl.className = 'feedback';
+    nextBtn.disabled = false; // Next sempre habilitado, mas verificação interna
   }
 
-  // Gera caixas e problemas
+  // Gera caixas e problemas (ajustado para dificuldades simplificadas e operações mais fáceis)
   function generateProblems() {
     gameState.problems = [];
-    //Define a qntt de problemas, ou as caixas
+    // Define a qntt de problemas, ou as caixas (até 4)
     const numProblems = Math.min(gameState.level + 1, 4);
     const difficulty = getDifficulty(gameState.level);
 
-    //Esse loop cria cada problema de matemática
-    // selecina cor, operações e sinais
+    // Esse loop cria cada problema de matemática
+    // seleciona cor, operações e sinais
     //________________________________________________
     for (let i = 0; i < numProblems; i++) {
       const color = colors[i % colors.length];
       let num1, num2, answer, operator;
       if (difficulty === 'easy') {
         // Fácil: apenas contagem de bolinhas, sem operações ou números visíveis nas bolinhas
-        answer = Math.floor(Math.random() * (gameState.level * 2 + 1)) + 1; // Ex: level 1: 1-3, level 2: 1-5, level 3: 1-7
+        // Números pequenos para crianças: 1 a 5 no nível 1, crescendo levemente
+        answer =
+          Math.floor(Math.random() * Math.min(gameState.level * 2 + 1, 5)) + 1;
         operator = null;
         num1 = null;
         num2 = null;
       } else {
-        // Médio e Difícil: com operações
+        // Hard (a partir do nível 4): operações simples para crianças de 6 anos
+        // Números de 1 a 5, só + e -, sem subtração negativa
         operator = Math.random() > 0.5 ? '+' : '-';
-        if (difficulty === 'medium') {
-          num1 = Math.floor(Math.random() * 10) + 1;
-          num2 = Math.floor(Math.random() * 10) + 1;
-        } else {
-          // hard
-          num1 = Math.floor(Math.random() * 15) + 1;
-          num2 = Math.floor(Math.random() * 15) + 1;
-        }
-        if (operator === '-' && num2 > num1) [num1, num2] = [num2, num1];
+        num1 = Math.floor(Math.random() * 5) + 1; // 1-5
+        num2 = Math.floor(Math.random() * 5) + 1; // 1-5
+        if (operator === '-' && num2 > num1) [num1, num2] = [num2, num1]; // Garante resultado >=0
         answer = operator === '+' ? num1 + num2 : num1 - num2;
       }
 
@@ -106,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
       box.dataset.problemIndex = i;
       box.dataset.color = color;
 
-      //Modelo da caixa - Texto simples
+      // Modelo da caixa - Texto simples
       const problemEl = document.createElement('div');
       problemEl.className = 'problem';
       if (difficulty === 'easy') {
@@ -122,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
       box.appendChild(boxContent);
       boxContainer.appendChild(box);
 
-      // Drag & drop na caixa (corrigido: usa dataset para index)
+      // Drag & drop na caixa (mantido como estava)
       box.addEventListener('dragover', (e) => e.preventDefault());
 
       box.addEventListener('drop', function (e) {
@@ -130,15 +122,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const ballId = e.dataTransfer.getData('text/plain');
         const ball = document.getElementById(ballId);
         if (ball) {
-          // Move o elemento DOM para esta caixa (appendChild move automaticamente se já existir em outro lugar)
+          // Move o elemento DOM para esta caixa
           this.querySelector('.box-content').appendChild(ball);
 
-          // Limpa o estado de TODAS as caixas (remove a bolinha de qualquer uma)
+          // Limpa o estado de TODAS as caixas
           gameState.problems.forEach((p) => {
             p.balls = p.balls.filter((b) => b.id !== ballId);
           });
 
-          // Adiciona à caixa ATUAL (usa dataset para index seguro)
+          // Adiciona à caixa ATUAL
           const currentIndex = parseInt(this.dataset.problemIndex);
           gameState.problems[currentIndex].balls.push({
             id: ballId,
@@ -150,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Gerar bolinhas
+  // Gerar bolinhas (easy=1 sem números; hard=1-2 com números)
   function generateBalls() {
     ballsContainer.innerHTML = '';
     gameState.balls = [];
@@ -160,21 +152,21 @@ document.addEventListener('DOMContentLoaded', function () {
       (sum, p) => sum + p.answer,
       0,
     );
-    const totalBalls = totalBallsNeeded + 5;
+    const totalBalls = totalBallsNeeded + 5; // + distratores
 
     const values = [];
     if (difficulty === 'hard') {
-      // Difícil: bolinhas com valores variáveis (1-3) e números visíveis
+      // Hard: bolinhas com valores 1-2 (mais simples) e números visíveis
       for (const problem of gameState.problems) {
         let remaining = problem.answer;
         while (remaining > 0) {
-          const value = Math.min(remaining, Math.floor(Math.random() * 3) + 1);
+          const value = Math.min(remaining, Math.floor(Math.random() * 2) + 1); // 1 ou 2
           values.push({ value, color: problem.color });
           remaining -= value;
         }
       }
     } else {
-      // Fácil e Médio: todas bolinhas valem 1 (sem números visíveis)
+      // Easy: todas bolinhas valem 1 (sem números visíveis)
       for (const problem of gameState.problems) {
         for (let j = 0; j < problem.answer; j++) {
           values.push({ value: 1, color: problem.color });
@@ -187,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < extraBalls; i++) {
       const color = colors[Math.floor(Math.random() * colors.length)];
       const value =
-        difficulty === 'hard' ? Math.floor(Math.random() * 3) + 1 : 1;
+        difficulty === 'hard' ? Math.floor(Math.random() * 2) + 1 : 1; // 1-2 em hard, 1 em easy
       values.push({ value, color });
     }
 
@@ -197,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const ball = document.createElement('div');
       ball.className = `ball ${v.color}`;
       ball.id = `ball-${i}`;
-      // Só mostra número em modo difícil
+      // Só mostra número em modo hard
       if (difficulty === 'hard') {
         ball.textContent = v.value;
       }
@@ -216,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Permitir devolver bolinhas ao container (corrigido: limpa estado)
+  // Permitir devolver bolinhas ao container (mantido)
   ballsContainer.addEventListener('dragover', (e) => e.preventDefault());
   ballsContainer.addEventListener('drop', function (e) {
     e.preventDefault();
@@ -232,12 +224,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Verificar respostas (corrigido: só incrementa se !levelCompleted)
-  function checkAnswers() {
+  // Função de verificação
+  function verifyAnswers() {
     let allCorrect = true;
     let messages = [];
 
-    // Reconstrói o estado das bolinhas baseado no DOM atual (evita desyncs de arrastar)
+    // Reconstrói o estado das bolinhas baseado no DOM atual
     gameState.problems.forEach((problem, index) => {
       const box = document.querySelector(
         `.math-box[data-problem-index="${index}"]`,
@@ -278,7 +270,6 @@ document.addEventListener('DOMContentLoaded', function () {
         allCorrect = false;
 
         if (wrongColors.length > 0) {
-          // Remove duplicatas para mensagem mais limpa (opcional)
           const uniqueWrong = [...new Set(wrongColors)];
           messages.push(
             `Caixa ${problem.color} contém cores erradas: ${uniqueWrong.join(
@@ -293,8 +284,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
+    // Feedback
     feedbackEl.textContent = allCorrect
-      ? 'Parabéns! Todas corretas!'
+      ? 'Parabéns! Todas corretas! Avançando para o próximo nível...'
       : messages.join(' | ') ||
         'Algumas respostas estão incorretas. Tente novamente!';
 
@@ -309,20 +301,8 @@ document.addEventListener('DOMContentLoaded', function () {
       ? 'feedback correct-feedback'
       : 'feedback incorrect-feedback';
 
-    // SÓ incrementa se TUDO correto E nível não completado ainda
-    if (allCorrect && !gameState.levelCompleted) {
-      gameState.score += gameState.level * 10;
-      gameState.problemsSolved += gameState.problems.length;
-      gameState.levelCompleted = true; // Marca como completado (evita múltiplos increments)
-      updateStats();
-      nextBtn.disabled = false;
-      checkBtn.disabled = true; // Desabilita check para evitar cliques extras (opcional, mas recomendado)
-    } else if (allCorrect && gameState.levelCompleted) {
-      // Se já completado, só mostra feedback sem incrementar
-      feedbackEl.textContent =
-        'Parabéns! Já verificado. Vá para o próximo nível!';
-    } else {
-      // Incorreto: Reset classes se incorreto, para próximo check
+    // Se incorreto: Reset classes após 2s
+    if (!allCorrect) {
       setTimeout(() => {
         gameState.problems.forEach((_, index) => {
           const box = document.querySelector(
@@ -332,16 +312,41 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }, 2000);
     }
+
+    return allCorrect;
   }
 
-  function nextLevel() {
-    gameState.level++;
-    feedbackEl.textContent = '';
-    feedbackEl.className = 'feedback';
-    // Reset flag para novo nível
-    gameState.levelCompleted = false;
-    checkBtn.disabled = false; // Reabilita check para novo nível
-    initGame();
+  //  função para nextBtn: verifica e avança se correto
+  function verifyAndAdvance() {
+    const allCorrect = verifyAnswers();
+
+    // SÓ avança e soma pontos se TUDO correto E nível não completado ainda
+    if (allCorrect && !gameState.levelCompleted) {
+      gameState.score += gameState.level * 10;
+      gameState.problemsSolved += gameState.problems.length;
+      gameState.levelCompleted = true; // Marca como completado
+      updateStats();
+
+      // Avança para próximo nível
+      setTimeout(() => {
+        gameState.level++;
+        feedbackEl.textContent = '';
+        feedbackEl.className = 'feedback';
+        gameState.levelCompleted = false; // Reset para novo nível
+        initGame();
+      }, 1500); // Pequeno delay para ver o feedback
+    } else if (allCorrect && gameState.levelCompleted) {
+      // Se já verificado antes (raro, mas evita loops)
+      feedbackEl.textContent = 'Já verificado! Avançando...';
+      setTimeout(() => {
+        gameState.level++;
+        feedbackEl.textContent = '';
+        feedbackEl.className = 'feedback';
+        gameState.levelCompleted = false;
+        initGame();
+      }, 1000);
+    }
+    // Se incorreto: não avança, feedback já mostrado
   }
 
   function resetGame() {
@@ -351,11 +356,11 @@ document.addEventListener('DOMContentLoaded', function () {
       problemsSolved: 0,
       problems: [],
       balls: [],
-      levelCompleted: false, // Reset flag
+      levelCompleted: false,
     };
     feedbackEl.textContent = '';
     feedbackEl.className = 'feedback';
-    checkBtn.disabled = false; // Reabilita check
+
     initGame();
   }
 
