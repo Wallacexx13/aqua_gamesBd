@@ -9,11 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/styleBolinhas.css">
+  <link rel="icon" href="../img/logo-mundo-novo.ico" type="image/x-icon">
 </head>
 
 <body>
+  
+  <header>
+    <!-- Barra de navegação -->
   <nav class="navbar">
     <ul class="nav-list">
       <li><a href="../aqua_games.html">Home</a></li>
@@ -24,7 +28,7 @@
   </nav>
   </header>
   <div class="game-container">
-    <div class="header">
+    <div class="titulo-principal">
       <h1 id="fase-titulo">Bolinha Matemática</h1>
       <p>Arraste as bolinhas para resolver os problemas</p>
     </div>
@@ -66,7 +70,9 @@
   <audio id="error-sound" src="som/erro.mp3" preload="auto"></audio>
   <audio id="success-sound" src="som/next-level.mp3" preload="auto"></audio>
   <script src="script.js"></script>
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js"></script>
+  <spline-viewer class="spline-bg" url="https://prod.spline.design/cBIy5KoSUmiz66NN/scene.splinecode"></spline-viewer>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.78/build/spline-viewer.js"></script>
+  
 
 </body>
 
