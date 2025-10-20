@@ -93,3 +93,138 @@ a {
   border-top: 1px solid rgba(70, 70, 150, 0.4);
   text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
 }
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets (768px ou menos) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  
+  .navbar ul {
+    gap: 2rem;
+  }
+  
+  .navbar a {
+    font-size: 0.9rem;
+  }
+  
+  .rodape {
+    padding: 0.7rem 0;
+    font-size: 0.85rem;
+  }
+  
+  body {
+    line-height: 1.4rem;
+  }
+}
+
+/* Mobile Grande (480px ou menos) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+    justify-content: space-between;
+  }
+  
+  .navbar ul {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .navbar a {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+  
+  .rodape {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+  
+  body {
+    line-height: 1.3rem;
+    padding: 0 10px;
+  }
+  
+  .spline-bg {
+    min-height: 100vh;
+    height: 100%;
+  }
+}
+
+/* Mobile Pequeno (320px ou menos) */
+@media (max-width: 320px) {
+  .navbar ul {
+    gap: 0.8rem;
+  }
+  
+  .navbar a {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+  
+  .rodape {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.3rem;
+  }
+  
+  body {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+  }
+}
+
+/* Desktop Grande (1200px ou mais) */
+@media (min-width: 1200px) {
+  .navbar ul {
+    gap: 4rem;
+  }
+  
+  .navbar a {
+    font-size: 1.1rem;
+  }
+  
+  .rodape {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+}
+
+/* Altura da tela pequena */
+@media (max-height: 600px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .rodape {
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  
+  body {
+    min-height: auto;
+    padding: 60px 0 40px 0;
+  }
+}
+
+/* Orientação paisagem em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar {
+    padding: 0.4rem 0;
+  }
+  
+  .navbar ul {
+    gap: 1.5rem;
+  }
+  
+  .rodape {
+    position: relative;
+    bottom: auto;
+  }
+  
+  body {
+    padding: 50px 0 30px 0;
+  }
+}
