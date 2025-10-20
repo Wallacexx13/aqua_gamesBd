@@ -58,22 +58,31 @@ h2 {
     margin: 1rem 0;
     letter-spacing: .2rem;
 }
-
-ul.integrantes-list {
-    list-style: none;
-    text-align: left;
-    padding: 0;
-    margin: 1rem 0;
+/* Lista de Integrantes */
+.integrantes-list {
+  list-style: none;
+  padding: 0;
 }
 
-ul.integrantes-list li {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
+.integrantes-list li {
+  background: rgba(40, 40, 80, 0.4); 
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  border-left: 5px solid #8c8cff; /* Borda de destaque */
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
 }
 
-span {
-    color: #00f5ff;
-    font-weight: 500;
+.integrantes-list li:hover {
+  background: rgba(50, 50, 100, 0.6);
 }
+
+.integrantes-list span {
+  font-weight: bold;
+  color: #00f5ff; /* Ciano Neon para o cargo */
+  margin-left: 10px;
+}
+
 
 

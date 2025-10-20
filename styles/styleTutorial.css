@@ -1,0 +1,115 @@
+.tutorial {
+      display: flex;
+      flex-direction: row; /* Padrão: lado a lado */
+      align-items: center;
+      gap: 50px;
+      /* Cartão com efeito 'glassmorphism' / neon sutil */
+      background: rgba(10, 10, 30, 0.85); /* Fundo escuro semi-transparente */
+      border: 1px solid rgba(70, 70, 150, 0.4); /* Borda sutil */
+      backdrop-filter: blur(8px); /* Efeito de desfoque */
+      padding: 40px 60px;
+      border-radius: 25px;
+      box-shadow: 
+        0 4px 60px rgba(0, 0, 0, 0.6), /* Sombra profunda */
+        0 0 15px rgba(100, 100, 255, 0.3); /* Efeito de brilho neon azul */
+      max-width: 90%;
+    }
+
+    /* 3. Estilização do Texto */
+    .conteiner-tutorial {
+      max-width: 500px;
+      padding-right: 20px;
+    }
+
+    .conteiner-tutorial h1 {
+      /* Fonte de estilo 'futurista' */
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 25px;
+      font-size: 2.5rem;
+      color: #8c8cff; /* Cor de destaque */
+      text-shadow: 0 0 10px rgba(130, 130, 255, 0.7); /* Efeito neon */
+      border-bottom: 3px solid #4a4a8a;
+      padding-bottom: 10px;
+    }
+
+    .key-binding {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 1.4rem;
+    }
+
+    .key-binding strong {
+      /* Estilização para as teclas (W, A, S, D) */
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      background: #333355; /* Fundo mais escuro para a tecla */
+      color: #ccf; /* Cor do texto da tecla */
+      border: 2px solid #6a6a99;
+      border-radius: 8px;
+      box-shadow: 
+        inset 0 -3px 0 rgba(0, 0, 0, 0.3), /* Dar profundidade */
+        0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra externa sutil */
+      margin-right: 15px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      transition: all 0.1s ease-in-out;
+    }
+
+    .key-binding:hover strong {
+        transform: translateY(-2px);
+        box-shadow: 
+            0 0 15px rgba(150, 150, 255, 0.7),
+            0 5px 10px rgba(0, 0, 0, 0.7);
+        background: #4a4a7a;
+    }
+
+
+    /* 4. Estilização do Spline Viewer */
+    spline-viewer {
+      width: 450px; /* Aumentado um pouco o tamanho */
+      height: 350px;
+      min-width: 300px; /* Garante um tamanho mínimo */
+      border-radius: 18px;
+      overflow: hidden;
+      border: 3px solid #8c8cff; /* Borda de destaque neon */
+      box-shadow: 
+        0 0 30px rgba(130, 130, 255, 0.8), /* Brilho neon forte */
+        0 0 50px rgba(0, 0, 0, 0.5); /* Sombra escura externa */
+      background: radial-gradient(circle at center, #1a1a3a, #0d0d1a);
+    }
+
+    /* 5. Responsividade para Telas Menores */
+    @media (max-width: 850px) {
+      .tutorial {
+        flex-direction: column; /* Empilha os elementos verticalmente */
+        padding: 30px 30px;
+        gap: 30px;
+      }
+
+      .conteiner-tutorial {
+        max-width: 100%; /* Ocupa a largura total no modo empilhado */
+        padding-right: 0;
+        text-align: center;
+      }
+      
+      .conteiner-tutorial h1 {
+        font-size: 2rem;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .key-binding {
+        justify-content: center; /* Centraliza as teclas no layout vertical */
+        font-size: 1.2rem;
+      }
+
+      spline-viewer {
+        width: 100%; /* Ocupa a largura total */
+        height: 250px; /* Reduz a altura para economizar espaço */
+        min-width: unset;
+      }
+    }
