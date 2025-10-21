@@ -83,6 +83,239 @@ h2 {
   color: #00f5ff; /* Ciano Neon para o cargo */
   margin-left: 10px;
 }
+/* ===== RESPONSIVIDADE ===== */
 
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 700px;
+        padding: 2.5rem;
+        margin: 6rem auto;
+        gap: 1.3rem;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+        letter-spacing: .25rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        letter-spacing: .15rem;
+    }
+
+    .integrantes-list li {
+        font-size: 1.05rem;
+        padding: 9px 14px;
+    }
+}
+
+/* Tablets pequenos e Mobile Landscape (600px - 768px) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 600px;
+        padding: 2rem;
+        margin: 5rem auto;
+        gap: 1.2rem;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        letter-spacing: .2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        letter-spacing: .1rem;
+        margin: 0.8rem 0;
+    }
+
+    .integrantes-list li {
+        font-size: 1rem;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+    }
+
+    .integrantes-list span {
+        margin-left: 8px;
+    }
+}
+
+/* Mobile (480px - 600px) */
+@media (max-width: 600px) {
+    .container {
+        max-width: 500px;
+        padding: 1.5rem;
+        margin: 4rem auto;
+        gap: 1rem;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: .15rem;
+        margin-bottom: 0.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        letter-spacing: .08rem;
+        margin: 0.6rem 0;
+    }
+
+    .integrantes-list li {
+        font-size: 0.95rem;
+        padding: 7px 10px;
+        margin-bottom: 5px;
+        border-left-width: 4px;
+    }
+
+    .integrantes-list span {
+        margin-left: 6px;
+        display: block; /* Quebra linha em mobile */
+        margin-top: 4px;
+        margin-left: 0;
+    }
+
+    /* Ajuste para o rodapé fixo em mobile */
+    body.sobre-nos-page .rodape {
+        position: relative; /* Muda para relativo em mobile */
+        margin-top: 2rem;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 1.2rem;
+        margin: 3.5rem auto 1rem;
+        gap: 0.8rem;
+        width: 92%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: .1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        letter-spacing: .05rem;
+        margin: 0.5rem 0;
+    }
+
+    .integrantes-list li {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+        margin-bottom: 4px;
+        border-left-width: 3px;
+    }
+
+    .integrantes-list span {
+        font-size: 0.85rem;
+        margin-top: 3px;
+    }
+}
+
+/* Telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 1rem;
+        margin: 3rem auto 1rem;
+        gap: 0.6rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        letter-spacing: .08rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .integrantes-list li {
+        font-size: 0.85rem;
+        padding: 5px 6px;
+    }
+
+    .integrantes-list span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Orientação Landscape em Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .container {
+        margin: 5rem auto 1rem;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin: 0.5rem 0;
+    }
+
+    .integrantes-list li {
+        padding: 6px 8px;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para telas muito altas */
+@media (min-height: 1000px) {
+    .container {
+        margin: 8rem auto;
+        padding: 4rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .integrantes-list li {
+        font-size: 1.2rem;
+        padding: 12px 18px;
+    }
+}
+
+/* Garantir que o conteúdo não fique escondido atrás do header */
+@media (max-width: 600px) {
+    body.sobre-nos-page {
+        padding-top: 60px; /* Espaço para o header fixo */
+    }
+    
+    .container {
+        margin-top: 1rem;
+    }
+}
+
+/* Melhorias de acessibilidade em telas pequenas */
+@media (max-width: 768px) {
+    .integrantes-list li {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .integrantes-list span {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
 
 

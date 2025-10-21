@@ -200,3 +200,292 @@ jogo vogais*/
         padding: 8px 12px;
     }
 }
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 500px;
+    padding: 25px 35px;
+  }
+  
+  #fase-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .image-area {
+    width: 140px;
+    height: 140px;
+  }
+  
+  #word-display {
+    font-size: 1.4rem;
+    letter-spacing: 10px;
+  }
+  
+  .letter {
+    font-size: 20px;
+    padding: 9px 14px;
+    min-width: 42px;
+  }
+}
+
+/* Tablets pequenos e Mobile Landscape (600px - 768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  .container {
+    max-width: 450px;
+    padding: 20px 30px;
+    margin: 2rem 1rem;
+  }
+  
+  #fase-titulo {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .image-area {
+    width: 130px;
+    height: 130px;
+    margin: 10px auto 20px;
+  }
+  
+  #word-display {
+    font-size: 1.3rem;
+    letter-spacing: 8px;
+    margin-bottom: 25px;
+    padding: 8px;
+  }
+  
+  #letters-area {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .letter {
+    font-size: 18px;
+    padding: 8px 12px;
+    min-width: 40px;
+  }
+  
+  .pontuacao {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    padding: 6px 12px;
+  }
+}
+
+/* Mobile (480px - 600px) */
+@media (max-width: 600px) {
+  .container {
+    max-width: 400px;
+    padding: 15px 20px;
+    margin: 1rem 0.5rem;
+    border-radius: 15px;
+  }
+  
+  #fase-titulo {
+    font-size: 1.3rem;
+    padding-bottom: 6px;
+  }
+  
+  .image-area {
+    width: 120px;
+    height: 120px;
+    margin: 8px auto 15px;
+  }
+  
+  #word-display {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+    padding: 6px;
+  }
+  
+  #letters-area {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  
+  .letter {
+    font-size: 16px;
+    padding: 7px 10px;
+    min-width: 38px;
+    border-radius: 6px;
+  }
+  
+  #feedback {
+    font-size: 1.1rem;
+  }
+  
+  #proxima-fase {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    max-width: 180px;
+  }
+  
+  .pontuacao {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+  }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    max-width: 350px;
+    padding: 12px 15px;
+    margin: 0.5rem;
+    gap: 10px;
+  }
+  
+  #fase-titulo {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+  }
+  
+  .image-area {
+    width: 100px;
+    height: 100px;
+    margin: 5px auto 12px;
+    border-width: 2px;
+  }
+  
+  #word-display {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    padding: 4px;
+  }
+  
+  #letters-area {
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .letter {
+    font-size: 14px;
+    padding: 6px 8px;
+    min-width: 35px;
+    border-radius: 5px;
+  }
+  
+  #feedback {
+    font-size: 1rem;
+    height: 20px;
+    min-height: 20px;
+  }
+  
+  #proxima-fase {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    max-width: 160px;
+    margin-top: 10px;
+  }
+  
+  .pontuacao {
+    font-size: 1.1rem;
+    margin-top: 12px;
+    padding: 4px 8px;
+  }
+}
+
+/* Telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+  .container {
+    max-width: 300px;
+    padding: 10px 12px;
+  }
+  
+  #fase-titulo {
+    font-size: 1rem;
+  }
+  
+  .image-area {
+    width: 90px;
+    height: 90px;
+  }
+  
+  #word-display {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+  }
+  
+  #letters-area {
+    gap: 3px;
+  }
+  
+  .letter {
+    font-size: 13px;
+    padding: 5px 7px;
+    min-width: 32px;
+  }
+  
+  .pontuacao {
+    font-size: 1rem;
+  }
+}
+
+/* Orientação Landscape em Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    max-width: 90%;
+    padding: 15px 20px;
+    margin: 0.5rem auto;
+  }
+  
+  .image-area {
+    width: 80px;
+    height: 80px;
+    margin: 5px auto 10px;
+  }
+  
+  #word-display {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
+  
+  #letters-area {
+    margin-bottom: 10px;
+  }
+  
+  .pontuacao {
+    margin-top: 10px;
+    padding: 4px 8px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Ajustes para telas muito altas */
+@media (min-height: 1000px) {
+  .container {
+    max-width: 500px;
+    padding: 40px 50px;
+  }
+  
+  .image-area {
+    width: 180px;
+    height: 180px;
+  }
+  
+  #word-display {
+    font-size: 1.8rem;
+  }
+  
+  .letter {
+    font-size: 24px;
+    padding: 12px 18px;
+  }
+}

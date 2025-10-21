@@ -328,3 +328,322 @@ button {
     flex-direction: column;
   }
 }
+/* ========== RESPONSIVIDADE ========== */
+
+/* Tablets (768px a 1024px) */
+@media (max-width: 1024px) {
+    .game-container {
+        max-width: 95%;
+        margin: 4rem auto;
+        top: 2%;
+        padding: 0.8rem;
+    }
+
+    #fase-titulo {
+        font-size: 1.8rem;
+    }
+
+    .stats {
+        padding: 12px;
+    }
+
+    .stat-item h3 {
+        font-size: 0.9rem;
+    }
+
+    .stat-item p {
+        font-size: 1.3rem;
+    }
+
+    .game-area {
+        gap: 15px;
+    }
+
+    .balls-container {
+        grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+        gap: 12px;
+        padding: 15px;
+        min-height: 180px;
+    }
+
+    .ball {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+
+    .problem {
+        font-size: 1.4rem;
+    }
+}
+
+/* Tablets pequenos e mobile landscape (600px a 768px) */
+@media (max-width: 768px) {
+    .game-container {
+        margin: 3rem auto;
+        padding: 0.6rem;
+    }
+
+    #fase-titulo {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .stat-item {
+        flex: 1 1 45%;
+        padding: 8px;
+    }
+
+    .stat-item h3 {
+        font-size: 0.85rem;
+    }
+
+    .stat-item p {
+        font-size: 1.2rem;
+    }
+
+    .game-area {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .balls-container {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 10px;
+        padding: 12px;
+        min-height: 150px;
+    }
+
+    .ball {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    .math-box {
+        padding: 15px;
+        min-height: 100px;
+    }
+
+    .problem {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+
+    .box-content {
+        gap: 8px;
+        min-height: 50px;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 1rem;
+        flex: 1 1 45%;
+    }
+
+    .feedback {
+        font-size: 1.1rem;
+        margin-top: 15px;
+    }
+}
+
+/* Mobile (480px a 600px) */
+@media (max-width: 600px) {
+    .game-container {
+        margin: 2rem auto;
+        padding: 0.5rem;
+        border-radius: 15px;
+    }
+
+    #fase-titulo {
+        font-size: 1.4rem;
+        padding-bottom: 6px;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .stat-item {
+        flex: 1 1 100%;
+        padding: 6px;
+    }
+
+    .stat-item h3 {
+        font-size: 0.8rem;
+    }
+
+    .stat-item p {
+        font-size: 1.1rem;
+    }
+
+    .balls-container {
+        grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+        gap: 8px;
+        padding: 10px;
+        min-height: 130px;
+    }
+
+    .ball {
+        width: 42px;
+        height: 42px;
+        font-size: 0.9rem;
+    }
+
+    .math-box {
+        padding: 12px;
+        min-height: 90px;
+        border-width: 2px;
+    }
+
+    .problem {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .box-content {
+        gap: 6px;
+        min-height: 45px;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+
+    .feedback {
+        font-size: 1rem;
+        margin-top: 12px;
+        padding: 8px;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    .game-container {
+        margin: 1rem auto;
+        padding: 0.4rem;
+        border-radius: 12px;
+    }
+
+    #fase-titulo {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .stat-item h3 {
+        font-size: 0.75rem;
+    }
+
+    .stat-item p {
+        font-size: 1rem;
+    }
+
+    .balls-container {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 6px;
+        padding: 8px;
+        min-height: 120px;
+    }
+
+    .ball {
+        width: 38px;
+        height: 38px;
+        font-size: 0.85rem;
+    }
+
+    .math-box {
+        padding: 10px;
+        min-height: 80px;
+    }
+
+    .problem {
+        font-size: 1.1rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .feedback {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+    .game-container {
+        margin: 0.5rem auto;
+        padding: 0.3rem;
+    }
+
+    #fase-titulo {
+        font-size: 1.1rem;
+    }
+
+    .balls-container {
+        grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+        gap: 5px;
+    }
+
+    .ball {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+
+    .problem {
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes para orientação landscape em mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .game-container {
+        margin: 1rem auto;
+        top: 1%;
+    }
+
+    .stats {
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+
+    .game-area {
+        margin-bottom: 15px;
+    }
+
+    .balls-container {
+        min-height: 100px;
+        padding: 10px;
+    }
+
+    .math-box {
+        min-height: 80px;
+        padding: 10px;
+    }
+
+    .controls {
+        margin-bottom: 10px;
+    }
+}
