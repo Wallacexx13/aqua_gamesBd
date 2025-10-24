@@ -181,6 +181,7 @@ a {
 @media (min-width: 1200px) {
   .navbar ul {
     gap: 4rem;
+    
   }
   
   .navbar a {
@@ -216,6 +217,7 @@ a {
     padding: 0.4rem 0;
   }
   
+
   .navbar ul {
     gap: 1.5rem;
   }
