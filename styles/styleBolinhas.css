@@ -19,7 +19,7 @@
   text-align: center;
   margin-bottom: 25px;
 }
-
+/* Estilo do Título da Fase */
 #fase-titulo {
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
@@ -30,7 +30,7 @@
   padding-bottom: 8px;
   width: 100%;
 }
-
+/* Estilo do Painel de Estatísticas */
 .stats {
   display: flex;
   justify-content: space-around;
