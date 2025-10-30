@@ -292,42 +292,6 @@ button {
 }
 
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .game-area {
-    grid-template-columns: 1fr;
-  }
-
-  .header h1 {
-    font-size: 2rem;
-  }
-
-  .problem {
-    font-size: 1.3rem;
-  }
-
-  button {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .ball {
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
-  }
-
-  .stats {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .controls {
-    flex-direction: column;
-  }
-}
 /* ========== RESPONSIVIDADE ========== */
 
 /* Tablets (768px a 1024px) */
@@ -540,7 +504,7 @@ button {
 /* Mobile pequeno (até 480px) */
 @media (max-width: 480px) {
     .game-container {
-        margin: 1rem auto;
+        margin: 100px auto;
         padding: 0.4rem;
         border-radius: 12px;
     }
@@ -593,7 +557,7 @@ button {
 /* Ajustes para telas muito pequenas (até 360px) */
 @media (max-width: 360px) {
     .game-container {
-        margin: 0.5rem auto;
+        margin: 100px auto;
         padding: 0.3rem;
     }
 
