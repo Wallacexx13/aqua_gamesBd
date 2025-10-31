@@ -113,3 +113,122 @@
     color: #444;
     margin-bottom: 20px;
 }
+/* Media Queries para diferentes tamanhos de tela */
+
+
+    
+    /* Ajuste adicional para o painel da palavra */
+    .painel-palavra {
+        margin-bottom: 15px;
+    }
+    
+    .imagem-palavra {
+        margin-bottom: 15px;
+    }
+
+
+
+/* Tablets */
+@media (max-width: 768px) {
+    .game-container {
+        margin: 100px auto;
+        padding: 0.8rem;
+
+    }
+    
+    .silabas-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        max-width: 500px;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .silaba {
+        font-size: 18px;
+    }
+}
+/* Smartphones */
+@media (max-width: 480px) {
+    .game-container {
+        margin: 100px auto;
+        padding: 0.5rem;
+        border-radius: 15px;
+    }
+    
+    .silabas-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        max-width: 500px;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    .silaba {
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    .imagem-palavra {
+        width: 70px;
+        margin-bottom: 10px;
+    }
+    
+    .palavra-alvo {
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    #fase-titulo {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+/* Telas muito pequenas (smartphones pequenos) */
+@media (max-width: 320px) {
+    .game-container {
+        margin: 75px auto;
+        padding: 0.5rem;
+        max-width: 95%;
+    }
+    
+    .silabas-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 300px; /* Aumentei um pouco para caber melhor */
+        width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        gap: 1px;
+    }
+    
+    .silaba {
+        font-size: 1rem;
+        width: 60px; /* Ocupa toda a célula do grid */
+        aspect-ratio: 1; /* Mantém proporção quadrada */
+        min-height: 50px; /* Altura mínima */
+
+    }
+    
+    #fase-titulo {
+        font-size: 1.5rem; /* Reduzi um pouco */
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+}
+/* Telas grandes */
+@media (min-width: 1200px) {
+    .game-container {
+        max-width: 1100px;
+    }
+    
+    .silabas-grid {
+        max-width: 360px;
+    }
+    
+    .silaba {
+        font-size: 22px;
+    }
+}

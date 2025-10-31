@@ -191,7 +191,7 @@ h2 {
     .container {
         max-width: 100%;
         padding: 1.2rem;
-        margin: 3.5rem auto 1rem;
+        margin: 100px auto;
         gap: 0.8rem;
         width: 92%;
     }
@@ -225,7 +225,7 @@ h2 {
 @media (max-width: 360px) {
     .container {
         padding: 1rem;
-        margin: 3rem auto 1rem;
+        margin: 100px auto ;
         gap: 0.6rem;
     }
 
@@ -248,30 +248,7 @@ h2 {
     }
 }
 
-/* Orientação Landscape em Mobile */
-@media (max-height: 600px) and (orientation: landscape) {
-    .container {
-        margin: 5rem auto 1rem;
-        padding: 1.5rem;
-        gap: 1rem;
-    }
 
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-
-    h2 {
-        font-size: 1.3rem;
-        margin: 0.5rem 0;
-    }
-
-    .integrantes-list li {
-        padding: 6px 8px;
-        margin-bottom: 4px;
-        font-size: 0.9rem;
-    }
-}
 
 /* Ajustes para telas muito altas */
 @media (min-height: 1000px) {
@@ -294,28 +271,5 @@ h2 {
     }
 }
 
-/* Garantir que o conteúdo não fique escondido atrás do header */
-@media (max-width: 600px) {
-    body.sobre-nos-page {
-        padding-top: 60px; /* Espaço para o header fixo */
-    }
-    
-    .container {
-        margin-top: 1rem;
-    }
-}
-
-/* Melhorias de acessibilidade em telas pequenas */
-@media (max-width: 768px) {
-    .integrantes-list li {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .integrantes-list span {
-        margin-left: 0;
-        margin-top: 5px;
-    }
-}
 
 
