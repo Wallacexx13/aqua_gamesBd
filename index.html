@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Mundo Game</title>
+    <!--Link da fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/homeStyles.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="icon" href="./img/logo-mundo-novo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <!-- Barra de navegação -->
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./sobreNos/sobreNos.html">SOBRE</a></li>
+                <li><a href="./mapa-3d/mundo.html">MUNDO ABERTO</a></li>
+                <li><a href="./tutorial/tutorial.html">TUTORIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção principal da tela de início -->
+    <section class="container">
+        <h1 class="titulo">Bem-vindo ao Novo Mundo</h1>
+        <p>Explore um ambiente 3D imersivo e descubra as aventuras que te aguardam.</p>
+
+        <!-- Botões de iniciar e ver instruções do jogo -->
+        <div class="botoes">
+            <a class="btn" href="./mapa-3d/mundo3d.html">Começar Jogo</a>
+        </div>
+
+        <!-- Novo background Spline -->
+        <spline-viewer class="spline-bg"
+            url="https://prod.spline.design/bDBVVIPaMG3epxIj/scene.splinecode">
+        </spline-viewer>
+    </section>
+
+    <!-- Importação atualizada do visualizador Spline -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.92/build/spline-viewer.js"></script>
+
+    <footer class="rodape">
+        <p>&copy; created by Aqua games 🌊</p>
+    </footer>
+
+</body>
+
+</html>

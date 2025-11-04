@@ -1,0 +1,309 @@
+.tutorial {
+      display: flex;
+      flex-direction: row; /* Padrão: lado a lado */
+      align-items: center;
+      gap: 50px;
+      /* Cartão com efeito 'glassmorphism' / neon sutil */
+      background: rgba(10, 10, 30, 0.85); /* Fundo escuro semi-transparente */
+      border: 1px solid rgba(70, 70, 150, 0.4); /* Borda sutil */
+      backdrop-filter: blur(8px); /* Efeito de desfoque */
+      padding: 40px 60px;
+      border-radius: 25px;
+      box-shadow: 
+        0 4px 60px rgba(0, 0, 0, 0.6), /* Sombra profunda */
+        0 0 15px rgba(100, 100, 255, 0.3); /* Efeito de brilho neon azul */
+      max-width: 90%;
+    }
+
+    /* 3. Estilização do Texto */
+    .conteiner-tutorial {
+      max-width: 500px;
+      padding-right: 20px;
+    }
+
+    .conteiner-tutorial h1 {
+      /* Fonte de estilo 'futurista' */
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 25px;
+      font-size: 2.5rem;
+      color: #8c8cff; /* Cor de destaque */
+      text-shadow: 0 0 10px rgba(130, 130, 255, 0.7); /* Efeito neon */
+      border-bottom: 3px solid #4a4a8a;
+      padding-bottom: 10px;
+    }
+
+    .key-binding {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 1.4rem;
+    }
+
+    .key-binding strong {
+      /* Estilização para as teclas (W, A, S, D) */
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      background: #333355; /* Fundo mais escuro para a tecla */
+      color: #ccf; /* Cor do texto da tecla */
+      border: 2px solid #6a6a99;
+      border-radius: 8px;
+      box-shadow: 
+        inset 0 -3px 0 rgba(0, 0, 0, 0.3), /* Dar profundidade */
+        0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra externa sutil */
+      margin-right: 15px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      transition: all 0.1s ease-in-out;
+    }
+
+    .key-binding:hover strong {
+        transform: translateY(-2px);
+        box-shadow: 
+            0 0 15px rgba(150, 150, 255, 0.7),
+            0 5px 10px rgba(0, 0, 0, 0.7);
+        background: #4a4a7a;
+    }
+
+
+    /* 4. Estilização do Spline Viewer */
+    spline-viewer {
+      width: 450px; /* Aumentado um pouco o tamanho */
+      height: 350px;
+      min-width: 300px; /* Garante um tamanho mínimo */
+      border-radius: 18px;
+      overflow: hidden;
+      border: 3px solid #8c8cff; /* Borda de destaque neon */
+      box-shadow: 
+        0 0 30px rgba(130, 130, 255, 0.8), /* Brilho neon forte */
+        0 0 50px rgba(0, 0, 0, 0.5); /* Sombra escura externa */
+      background: radial-gradient(circle at center, #1a1a3a, #0d0d1a);
+    }
+
+    /* ===== RESPONSIVIDADE MELHORADA ===== */
+
+/* Tablets grandes (1024px - 1200px) */
+@media (max-width: 1200px) {
+    .tutorial {
+        gap: 40px;
+        padding: 35px 50px;
+        max-width: 95%;
+    }
+
+    .conteiner-tutorial {
+        max-width: 450px;
+    }
+
+    .conteiner-tutorial h1 {
+        font-size: 2.2rem;
+    }
+
+    spline-viewer {
+        width: 400px;
+        height: 320px;
+    }
+}
+
+/* Tablets (850px - 1024px) */
+@media (max-width: 1024px) {
+    .tutorial {
+        gap: 35px;
+        padding: 30px 40px;
+    }
+
+    .conteiner-tutorial {
+        max-width: 400px;
+    }
+
+    .conteiner-tutorial h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .key-binding {
+        font-size: 1.3rem;
+        margin: 12px 0;
+    }
+
+    .key-binding strong {
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        margin-right: 12px;
+    }
+
+    spline-viewer {
+        width: 380px;
+        height: 300px;
+        min-width: 280px;
+    }
+}
+
+/* Tablets pequenos e Mobile Landscape (768px - 850px) */
+@media (max-width: 850px) {
+    .tutorial {
+        flex-direction: column;
+        padding: 30px 35px;
+        gap: 30px;
+        max-width: 90%;
+    }
+
+    .conteiner-tutorial {
+        max-width: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .conteiner-tutorial h1 {
+        font-size: 1.9rem;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 15px;
+    }
+
+    .key-binding {
+        justify-content: center;
+        font-size: 1.25rem;
+        margin: 10px 0;
+    }
+
+    .key-binding strong {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 10px;
+    }
+
+    spline-viewer {
+        width: 100%;
+        height: 280px;
+        min-width: unset;
+        max-width: 500px;
+    }
+}
+
+/* Mobile (600px - 768px) */
+@media (max-width: 768px) {
+    .tutorial {
+        padding: 25px 30px;
+        gap: 25px;
+        max-width: 95%;
+        border-radius: 20px;
+    }
+
+    .conteiner-tutorial h1 {
+        font-size: 1.7rem;
+        margin-bottom: 12px;
+    }
+
+    .key-binding {
+        font-size: 1.15rem;
+        margin: 8px 0;
+    }
+
+    .key-binding strong {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        margin-right: 8px;
+    }
+
+    spline-viewer {
+        height: 250px;
+        border-width: 2px;
+        border-radius: 15px;
+    }
+}
+
+/* Mobile pequeno (480px - 600px) */
+@media (max-width: 600px) {
+    .tutorial {
+        padding: 20px 25px;
+        gap: 20px;
+        max-width: 92%;
+        border-radius: 18px;
+    }
+
+    .conteiner-tutorial h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .key-binding {
+        font-size: 1.1rem;
+        margin: 7px 0;
+    }
+
+    .key-binding strong {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        margin-right: 7px;
+        font-size: 0.9rem;
+    }
+
+    spline-viewer {
+        height: 220px;
+        border-radius: 12px;
+    }
+}
+
+/* Mobile muito pequeno (até 480px) */
+@media (max-width: 480px) {
+    .tutorial {
+        padding: 15px 20px;
+        gap: 15px;
+        max-width: 90%;
+        border-radius: 15px;
+    }
+
+    .conteiner-tutorial h1 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    .key-binding {
+        font-size: 1rem;
+        margin: 6px 0;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .key-binding strong {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        margin-right: 0;
+        font-size: 0.85rem;
+    }
+
+    spline-viewer {
+        height: 200px;
+        border-radius: 10px;
+        border-width: 1px;
+    }
+}
+
+/* Telas extremamente pequenas (até 360px) */
+@media (max-width: 360px) {
+    .tutorial {
+        padding: 12px 15px;
+        gap: 12px;
+        max-width: 88%;
+    }
+
+    .conteiner-tutorial h1 {
+        font-size: 1.2rem;
+    }
+
+    .key-binding {
+        font-size: 0.95rem;
+        margin: 5px 0;
+    }
+
+    .key-binding strong {
+        width: 30px;
+    }
+  }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Aberto - AquaGames</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/index.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0B0A10; /* Fundo escuro de fallback */
+            overflow: hidden; /* Impede barras de rolagem */
+        }
+
+        /* Coloca a navbar na frente */
+        header {
+            position: relative; /* Mantém a navbar no fluxo */
+            z-index: 10;
+        }
+
+        /* Coloca o Spline no fundo */
+        spline-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1; /* Nível 1 (atrás da navbar) */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../sobreNos/sobreNos.html">SOBRE</a></li>
+                <li><a href="../mapa-3d/mundo.html">MUNDO ABERTO</a></li> 
+                <li><a href="../tutorial/tutorial.html">TUTORIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.95/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/Z6IBqc5kJl1Ugzih/scene.splinecode"></spline-viewer>
+
+</body>
+</html>

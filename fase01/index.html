@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scriptfase1.js" defer></script>
+    <link rel="stylesheet" href="../styles/stylefase1.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="jogo01.js" defer></script>
+    <link rel="icon" href="../img/logo-mundo-novo.ico" type="image/x-icon">
+    <title>Primeira Fase</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Garante que o body comece certo */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Orbitron', sans-serif; 
+            background-color: #000; 
+        }
+
+        /* ===== TELA DE LOADING ===== */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Fundo com estrelas */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Container principal */
+        .loading-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* Espaço para a animação da nave */
+        .space-scene {
+            position: relative;
+            width: 500px;
+            height: 350px;
+            background: radial-gradient(ellipse at center, rgba(0, 150, 255, 0.05) 0%, transparent 70%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(0, 212, 255, 0.2), inset 0 0 60px rgba(0, 150, 255, 0.1);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        /* Nave espacial */
+        .spaceship {
+            position: absolute;
+            left: -120px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: travel 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.9)) drop-shadow(0 0 40px rgba(0, 150, 255, 0.5));
+        }
+
+        @keyframes travel {
+            0% { left: -120px; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { left: 100%; opacity: 0; }
+        }
+
+        /* SVG da nave (corrigido) */
+        .spaceship svg {
+            width: 75px;
+            height: 100px;
+            transform: rotate(90deg);
+        }
+
+        /* Trilha/rastro da nave */
+        .trail {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.8), transparent);
+            transform: translateY(-50%);
+            animation: trailMove 4s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+        }
+
+        @keyframes trailMove {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* Planetas decorativos */
+        .planet { position: absolute; border-radius: 50%; }
+        .planet-1 { width: 80px; height: 80px; background: radial-gradient(circle at 35% 35%, rgba(255, 100, 200, 0.9), rgba(150, 50, 150, 0.8), rgba(100, 0, 150, 0.6)); top: 30px; right: 50px; box-shadow: 0 0 30px rgba(255, 100, 200, 0.6), inset -10px -10px 30px rgba(0, 0, 0, 0.4); }
+        .planet-2 { width: 60px; height: 60px; background: radial-gradient(circle at 35% 35%, rgba(0, 200, 255, 0.9), rgba(0, 150, 200, 0.8), rgba(0, 100, 150, 0.6)); bottom: 40px; left: 40px; box-shadow: 0 0 25px rgba(0, 200, 255, 0.6), inset -8px -8px 25px rgba(0, 0, 0, 0.4); }
+        .star-decoration { position: absolute; width: 60px; height: 60px; bottom: 50px; right: 60px; opacity: 0.8; animation: starRotate 8s linear infinite; }
+        @keyframes starRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Barra de progresso */
+        .progress-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .progress-bar { width: 350px; height: 10px; background: rgba(0, 150, 255, 0.2); border-radius: 10px; overflow: hidden; box-shadow: 0 0 25px rgba(0, 212, 255, 0.3), inset 0 0 15px rgba(0, 100, 150, 0.2); border: 1px solid rgba(0, 212, 255, 0.4); }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #0099ff, #00d4ff, #00ffff); border-radius: 10px; box-shadow: 0 0 15px rgba(0, 212, 255, 1), 0 0 30px rgba(0, 150, 255, 0.6); transition: width 0.5s ease-out; width: 0%; }
+        .progress-text { color: #00d4ff; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-family: 'Orbitron', sans-serif; }
+        .loading-text { color: #ffffff; font-size: 24px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; animation: pulse 1.5s ease-in-out infinite; text-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 150, 255, 0.3); font-family: 'Orbitron', sans-serif; }
+        @keyframes pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+        
+        /* Pontos animados */
+        .dots { display: inline-block; width: 25px; text-align: left; margin-left: 5px; }
+        .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #00d4ff; margin: 0 3px; animation: dot 1.4s infinite; box-shadow: 0 0 8px rgba(0, 212, 255, 0.8); }
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes dot { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-12px); } }
+
+        /* Responsividade (com nave corrigida) */
+        @media (max-width: 768px) { .space-scene { width: 350px; height: 250px; } .spaceship svg { width: 56px; height: 75px; } .progress-bar { width: 280px; } .loading-text { font-size: 18px; } .planet-1 { width: 60px; height: 60px; } .planet-2 { width: 45px; height: 45px; } }
+        @media (max-width: 480px) { .loading-container { gap: 30px; } .space-scene { width: 280px; height: 200px; } .spaceship svg { width: 45px; height: 60px; } .progress-bar { width: 220px; } .loading-text { font-size: 14px; letter-spacing: 2px; } .planet-1 { width: 50px; height: 50px; } .planet-2 { width: 35px; height: 35px; } }
+    </style>
+</head>
+
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="stars" id="starsContainer"></div>
+        <div class="loading-container">
+            <div class="space-scene">
+                <div class="trail"></div>
+                <div class="planet planet-1"></div>
+                <div class="planet planet-2"></div>
+                <div class="star-decoration">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><polygon points="50,10 61,40 92,40 67,60 78,90 50,70 22,90 33,60 8,40 39,40" fill="#FFD700" stroke="#FFA500" stroke-width="1.5"/></svg>
+                </div>
+                <div class="spaceship">
+                    <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><path d="M 60 15 L 95 70 L 60 60 L 25 70 Z" fill="#00d4ff" stroke="#0099ff" stroke-width="2.5"/><polygon points="60,60 25,70 20,65 55,50" fill="#0099ff" stroke="#0066ff" stroke-width="1.5" opacity="0.8"/><polygon points="60,60 95,70 100,65 65,50" fill="#0099ff" stroke="#0066ff" stroke-width="1.5" opacity="0.8"/><circle cx="60" cy="35" r="10" fill="#ffff00" stroke="#FFD700" stroke-width="2" opacity="0.9"/><circle cx="60" cy="35" r="7" fill="#ffffff" opacity="0.6"/><rect x="48" y="60" width="10" height="18" fill="#ff6b6b" rx="3" stroke="#ff4444" stroke-width="1.5"/><rect x="62" y="60" width="10" height="18" fill="#ff6b6b" rx="3" stroke="#ff4444" stroke-width="1.5"/><polygon points="53,78 50,92 56,82" fill="#ff8e72" opacity="0.95"/><polygon points="67,78 64,92 70,82" fill="#ff8e72" opacity="0.95"/><polygon points="53,78 51,88 55,80" fill="#ffff00" opacity="0.8"/><polygon points="67,78 65,88 69,80" fill="#ffff00" opacity="0.8"/><circle cx="45" cy="50" r="3" fill="#00ffff" opacity="0.7"/><circle cx="75" cy="50" r="3" fill="#00ffff" opacity="0.7"/></svg>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressPercent">0%</div>
+            </div>
+            <div class="loading-text">Iniciando Missão<span class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../sobreNos/sobreNos.html">SOBRE</a></li>
+                <li><a href="../mapa-3d/mundo.html">MUNDO ABERTO</a></li>
+                <li><a href="../tutorial/tutorial.html">TUTORIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="container">
+        <h2 id="fase-titulo">Fase 1 – Vogais</h2>
+        <div class="pontuacao">🏆 0</div>
+
+        <div class="image-area">
+            <img src="imagens/anel.png" alt="Imagem do desafio">
+        </div>
+
+        <div id="word-display">_ N E L</div>
+
+        <div id="letters-area"></div>
+
+        <div id="feedback"></div>
+
+        <button id="proxima-fase">Próxima Palavra</button>
+
+        
+
+    </section>
+
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.57/build/spline-viewer.js"></script>
+    <spline-viewer class="spline-bg" url="https://prod.spline.design/O3jUWXdlRjWOgWsN/scene.splinecode"></spline-viewer>
+    <script>
+        // Espera o DOM (HTML básico) estar pronto
+        document.addEventListener("DOMContentLoaded", () => {
+        
+            // ===== SISTEMA DE LOADING =====
+            
+            // (1) Encontra os elementos do loading
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const progressFill = document.getElementById('progressFill');
+            const progressPercent = document.getElementById('progressPercent');
+            const starsContainer = document.getElementById('starsContainer');
+
+            // (2) Função para gerar estrelas aleatórias
+            function generateStars() {
+                if (!starsContainer) return;
+                const starCount = 120;
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    const size = Math.random() * 2.5 + 0.5;
+                    star.style.width = size + 'px';
+                    star.style.height = size + 'px';
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 3 + 's';
+                    star.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
+                    starsContainer.appendChild(star);
+                }
+            }
+
+            // (3) Função para atualizar o progresso
+            function updateProgress(value) {
+                if (!progressFill || !progressPercent) return;
+                let progress = Math.min(value, 100);
+                progressFill.style.width = progress + '%';
+                progressPercent.textContent = Math.round(progress) + '%';
+            }
+
+            // (4) Função para esconder o loading
+            function hideLoading() {
+                if (!loadingOverlay) return;
+                loadingOverlay.classList.add('hidden');
+                // Remove o elemento da tela após a transição de opacidade
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 500);
+            }
+
+            // (5) Inicia a geração de estrelas
+            generateStars();
+
+            // (6) Simulação de progresso inicial (vai até 90%)
+            let simulationProgress = 0;
+            const simulationInterval = setInterval(() => {
+                simulationProgress += Math.random() * 25; // Pulos aleatórios
+                if (simulationProgress >= 90) {
+                    simulationProgress = 90;
+                    clearInterval(simulationInterval); // Para o intervalo em 90%
+                }
+                updateProgress(simulationProgress);
+            }, 400); // A cada 400ms
+
+            // (7) O MAIS IMPORTANTE: Espera a página inteira carregar
+            // (incluindo seu jogo, imagens, scripts, e o spline-viewer)
+            window.addEventListener('load', () => {
+                console.log("Página completa carregada!");
+                clearInterval(simulationInterval); // Para a simulação
+                updateProgress(100); // Vai para 100%
+                
+                // Espera um momento (para o usuário ver o 100%) e esconde
+                setTimeout(() => {
+                    hideLoading();
+                }, 500); 
+            });
+
+            // (8) Fallback: Se algo der muito errado, esconde depois de 7s
+            setTimeout(() => {
+                // 'progress' não está definido aqui, vamos usar 'simulationProgress'
+                if (simulationProgress < 90) { // Se ainda não tiver chegado a 90%
+                    console.log("Fallback do loading: 7 segundos se passaram.");
+                    hideLoading();
+                }
+            }, 7000); 
+
+        }); // Fim do 'DOMContentLoaded'
+    </script>
+</body>
+
+</html>

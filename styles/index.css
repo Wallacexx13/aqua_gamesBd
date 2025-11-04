@@ -1,0 +1,232 @@
+/* CSS principal para o rodapé e cabeçalho */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik:wght@400;700&display=swap');
+
+html{
+    overflow-y: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1.6rem;
+  background-color: #111;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  
+}
+
+/* ===== CABEÇALHO E NAVEGAÇÃO - Glassmorphism/Neon ===== */
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  /* Glassmorphism */
+  background: rgba(10, 10, 30, 0.7); 
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(70, 70, 150, 0.4);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.navbar a {
+  font-family: 'Orbitron', sans-serif; 
+  font-weight: 500;
+  color: #ccf;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 5px 0;
+}
+
+.navbar a:hover {
+  color: #00f5ff; /* Ciano Neon */
+  text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.spline-bg {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
+}
+
+/* ===== RODAPÉ - Estilo Neon Sutil ===== */
+.rodape {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem 0;
+  /* Glassmorphism */
+  background: rgba(10, 10, 30, 0.7);
+  backdrop-filter: blur(10px);
+  color: #aaa;
+  font-size: 0.9rem;
+  z-index: 5;
+  border-top: 1px solid rgba(70, 70, 150, 0.4);
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+}
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets (768px ou menos) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  
+  .navbar ul {
+    gap: 2rem;
+  }
+  
+  .navbar a {
+    font-size: 0.9rem;
+  }
+  
+  .rodape {
+    padding: 0.7rem 0;
+    font-size: 0.85rem;
+  }
+  
+  body {
+    line-height: 1.4rem;
+  }
+}
+
+/* Mobile Grande (480px ou menos) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+    justify-content: space-between;
+  }
+  
+  .navbar ul {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .navbar a {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+  
+  .rodape {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+  
+  body {
+    line-height: 1.3rem;
+    padding: 0 10px;
+  }
+  
+  .spline-bg {
+    min-height: 100vh;
+    height: 100%;
+  }
+}
+
+/* Mobile Pequeno (320px ou menos) */
+@media (max-width: 320px) {
+  .navbar ul {
+    gap: 0.8rem;
+  }
+  
+  .navbar a {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+  
+  .rodape {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.3rem;
+  }
+  
+  body {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+  }
+}
+
+/* Desktop Grande (1200px ou mais) */
+@media (min-width: 1200px) {
+  .navbar ul {
+    gap: 4rem;
+    
+  }
+  
+  .navbar a {
+    font-size: 1.1rem;
+  }
+  
+  .rodape {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+}
+
+/* Altura da tela pequena */
+@media (max-height: 600px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .rodape {
+    padding: 0.5rem 0;
+
+  }
+  
+  body {
+
+    padding: 60px 0 40px 0;
+  }
+}
+
+/* Orientação paisagem em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar {
+    padding: 0.4rem 0;
+  }
+  
+
+  .navbar ul {
+    gap: 1.5rem;
+  }
+  
+  .rodape {
+    bottom: auto;
+  }
+  
+  body {
+    padding: 50px 0 30px 0;
+  }
+}
