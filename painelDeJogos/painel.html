@@ -6,28 +6,24 @@
     <title>Painel de Jogos</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="../styles/stylePainel.css">
     <link rel="stylesheet" href="../styles/index.css">
 
     <style>
-        /* Garante que o body comece certo */
         body { 
             margin: 0; 
             padding: 0; 
-            /* Fonte fallback do loading */
             font-family: 'Orbitron', sans-serif; 
-            background-color: #0B0A10; /* Fundo escuro (azul/roxo) */
+            background-color: #0B0A10;
         }
 
-        /* --- CSS do Loading Futurista --- */
         .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(11, 10, 16, 0.9); /* Fundo escuro semi-transparente */
+            background: rgba(11, 10, 16, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,12 +38,11 @@
             backdrop-filter: blur(0px);
         }
 
-        /* A "Interface" flutuante */
         .loading-ui-container {
             width: 90%;
             max-width: 450px;
-            background: rgba(10, 30, 50, 0.7); /* Fundo da UI azul escuro */
-            border: 2px solid #00d4ff; /* Borda Ciano/Azul clara */
+            background: rgba(10, 30, 50, 0.7);
+            border: 2px solid #00d4ff;
             border-radius: 8px;
             padding: 25px 30px;
             box-shadow: 0 0 25px rgba(0, 212, 255, 0.5), inset 0 0 15px rgba(0, 212, 255, 0.3);
@@ -57,7 +52,6 @@
             text-shadow: 0 0 8px rgba(0, 212, 255, 0.7);
         }
 
-        /* Linha de "scan" animada */
         .loading-ui-container::after {
             content: '';
             position: absolute;
@@ -75,7 +69,6 @@
             100% { top: 0; }
         }
 
-        /* Cantos decorativos */
         .ui-corner {
             position: absolute;
             width: 20px;
@@ -83,11 +76,11 @@
             border-color: #00d4ff;
             border-style: solid;
         }
+
         .ui-corner-top-left { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
         .ui-corner-top-right { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
         .ui-corner-bottom-left { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
         .ui-corner-bottom-right { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-
 
         .loading-header {
             font-size: 1.2rem;
@@ -96,7 +89,7 @@
             letter-spacing: 2px;
             animation: pulse-light 2s infinite;
         }
-        
+
         @keyframes pulse-light {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.8; }
@@ -144,22 +137,8 @@
             text-align: center;
             margin-top: 10px;
         }
-
-        /* Responsividade */
-        @media (max-width: 480px) {
-            .loading-ui-container {
-                padding: 20px 25px;
-            }
-            .loading-header {
-                font-size: 1rem;
-            }
-            .loading-text-container, .progress-text {
-                font-size: 0.8rem;
-            }
-        }
     </style>
 </head>
-
 <body>
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-ui-container">
@@ -169,11 +148,9 @@
             <div class="ui-corner ui-corner-bottom-right"></div>
 
             <div class="loading-header">SISTEMA AQUAGAMES</div>
-            
             <div class="loading-text-container">
                 <span id="loadingText">> Conectando ao mainframe...</span><span class="blinking-cursor">_</span>
             </div>
-            
             <div class="progress-container">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
@@ -193,9 +170,9 @@
             </ul>
         </nav>
     </header>
+
     <div class="games-panel">
         <h1 class="panel-title">🎮 Painel de Jogos</h1>
-        
         <div class="games-grid">
             <div class="game-card" onclick="startGame('VogaisConsoantes')">
                 <div class="game-icon">🔤</div>
@@ -214,14 +191,14 @@
             <div class="game-card" onclick="startGame('Termo')">
                 <div class="game-icon">🔤</div>
                 <h3 class="game-title">Jogo do Termo</h3>
-                <p class="game-description">Escreva o nome da image com as letras disponíveis!</p>
+                <p class="game-description">Escreva o nome da imagem com as letras disponíveis!</p>
                 <span class="game-difficulty difficulty-hard">Difícil</span>
             </div>
 
             <div class="game-card" onclick="startGame('JogoBolinhas')">
                 <div class="game-icon">➗</div>
                 <h3 class="game-title">Conte as Bolinhas</h3>
-                <p class="game-description">Coloque o numero de bolinhas corretamente nas caixas!</p>
+                <p class="game-description">Coloque o número de bolinhas corretamente nas caixas!</p>
                 <span class="game-difficulty difficulty-medium">Médio</span>
             </div>
 
@@ -240,10 +217,9 @@
             </div>
         </div>
     </div>
-<script>
-        // Script original do painel
+
+    <script>
         function startGame(gameType) {
-            
             if (gameType === 'VogaisConsoantes') {
                 window.location.href = '../fase01/index.html';
             } else if (gameType === 'JunteSílabas') {
@@ -253,27 +229,19 @@
             } else if (gameType === 'JogoBolinhas') {
                 window.location.href = '../jogoBolinhas/index.html';
             }
-            // Adicione os outros jogos aqui (logica, velocidade)
         }
 
-        // Script original + Script de Loading
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // Script original para animar os cards (com 0.6s)
             const cards = document.querySelectorAll('.game-card');
             cards.forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.6}s`;
             });
 
-            // --- INÍCIO DO SCRIPT DE LOADING FUTURISTA (COM TEMPO MÍNIMO) ---
-            
-            // (1) Encontra os elementos do loading
             const loadingOverlay = document.getElementById('loadingOverlay');
             const progressFill = document.getElementById('progressFill');
             const progressPercent = document.getElementById('progressPercent');
             const loadingText = document.getElementById('loadingText');
 
-            // (2) Lista de mensagens "Sci-Fi"
             const loadingMessages = [
                 "> Conectando ao mainframe...",
                 "> Carregando recursos do hub...",
@@ -284,13 +252,10 @@
             let msgIndex = 0;
             let simulationProgress = 0;
 
-            // (3) Variáveis de controle de tempo
             let isPageLoaded = false;
             let isMinTimePassed = false;
-            // TEMPO MÍNIMO DE 3 SEGUNDOS
-            const MIN_LOADING_TIME = 3000; 
+            const MIN_LOADING_TIME = 3000;
 
-            // (4) Função para atualizar o progresso
             function updateProgress(value) {
                 if (!progressFill || !progressPercent) return;
                 let progress = Math.min(value, 100);
@@ -298,69 +263,42 @@
                 progressPercent.textContent = Math.round(progress) + '%';
             }
 
-            // (5) Função para tentar esconder o loading
             function attemptToHideLoading() {
-                // Só esconde se o tempo mínimo PASSOU e a página CARREGOU
                 if (isPageLoaded && isMinTimePassed) {
                     if (!loadingOverlay) return;
-                    
-                    // Força o 100% e a mensagem final
                     clearInterval(simulationInterval);
                     updateProgress(100);
                     loadingText.textContent = "> SISTEMA ONLINE. BEM-VINDO.";
-                    
                     setTimeout(() => {
                         loadingOverlay.classList.add('hidden');
-                        setTimeout(() => {
-                            loadingOverlay.style.display = 'none';
-                        }, 500); // Tempo da transição CSS
-                    }, 700); // Tempo para ler a msg final
+                        setTimeout(() => loadingOverlay.style.display = 'none', 500);
+                    }, 700);
                 }
             }
 
-            // (6) Simulação de progresso
-            // Ajustado para 500ms para dar tempo de ler as mensagens
             const simulationInterval = setInterval(() => {
-                simulationProgress += Math.random() * 20; // Avança
-                
-                // Para em 90% se o tempo mínimo ainda não passou
+                simulationProgress += Math.random() * 20;
                 if (simulationProgress >= 90) {
                     simulationProgress = 90;
-                    if (!isMinTimePassed) {
-                       clearInterval(simulationInterval);
-                    }
+                    if (!isMinTimePassed) clearInterval(simulationInterval);
                 }
                 updateProgress(simulationProgress);
-
-                // Troca a mensagem de texto
-                // (Ajustado para 'msgIndex * 18' para bater com os 90% e 5 mensagens)
                 if (simulationProgress > (msgIndex * 18) && msgIndex < loadingMessages.length) {
                     loadingText.textContent = loadingMessages[msgIndex];
                     msgIndex++;
                 }
-            }, 500); // A cada 500ms
+            }, 500);
 
-            // (7) Espera a página inteira carregar
             window.addEventListener('load', () => {
-                console.log("Página completa carregada!");
-                isPageLoaded = true; // Avisa que a página carregou
-                attemptToHideLoading(); // Tenta esconder
+                isPageLoaded = true;
+                attemptToHideLoading();
             });
 
-            // (8) Define o tempo mínimo
             setTimeout(() => {
-                console.log("Tempo mínimo de loading (3s) atingido.");
-                isMinTimePassed = true; // Avisa que o tempo passou
-                
-                // Se a simulação parou em 90%, força ela a continuar
-                if (simulationProgress === 90) {
-                    clearInterval(simulationInterval); 
-                }
-                
-                attemptToHideLoading(); // Tenta esconder
-            }, MIN_LOADING_TIME); // 3000ms
-            
-            // --- FIM DO SCRIPT DE LOADING ---
+                isMinTimePassed = true;
+                if (simulationProgress === 90) clearInterval(simulationInterval);
+                attemptToHideLoading();
+            }, MIN_LOADING_TIME);
         });
     </script>
 </body>
