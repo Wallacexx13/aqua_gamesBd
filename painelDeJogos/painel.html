@@ -57,11 +57,11 @@
             </div>
 
             <!-- Jogo 5 -->
-            <div class="game-card" onclick="startGame('logica')">
+            <div class="game-card" onclick="startGame('Quebra-Cabeça')">
                 <div class="game-icon">🧩</div>
                 <h3 class="game-title">Quebra-Cabeça Lógico</h3>
                 <p class="game-description">Resolva puzzles complexos usando lógica e raciocínio.</p>
-                <span class="game-difficulty difficulty-hard">Difícil</span>
+                <span class="game-difficulty difficulty-easy">Fácil</span>
             </div>
 
             <!-- Jogo 6 -->
@@ -84,8 +84,9 @@
                 window.location.href = '../JogoTermo/index.html';
             } else if (gameType === 'JogoBolinhas') {
                 window.location.href = '../jogoBolinhas/index.html';
+            } else if (gameType === 'Quebra-Cabeça') {
+                window.location.href = '../quebra_cabeca/index.html';
             }
-
         }
 
 
