@@ -66,11 +66,11 @@
             </div>
 
             <!-- Jogo 6 -->
-            <div class="game-card" onclick="startGame('velocidade')">
-                <div class="game-icon">⚡</div>
-                <h3 class="game-title">Teste de Velocidade</h3>
-                <p class="game-description">Digite as palavras o mais rápido que conseguir!</p>
-                <span class="game-difficulty difficulty-hard">Difícil</span>
+            <div class="game-card" onclick="startGame('FormasGeométricas')">
+                <div class="game-icon">🧩</div>
+                <h3 class="game-title">Jogo das Formas Geométricas</h3>
+                <p class="game-description">Encontre e identifique as formas geométricas!</p>
+                <span class="game-difficulty difficulty-medium">Médio</span>
             </div>
         </div>
 <!-- ➗🔤 🧩 ❓ -->
@@ -87,6 +87,8 @@
                 window.location.href = '../jogoBolinhas/index.html';
             } else if (gameType === 'Quebra-Cabeça') {
                 window.location.href = '../quebra_cabeca/index.html';
+            }else if (gameType === 'FormasGeométricas') {
+                window.location.href = '../geometricas/geometricos.html';
             }
         }
 
