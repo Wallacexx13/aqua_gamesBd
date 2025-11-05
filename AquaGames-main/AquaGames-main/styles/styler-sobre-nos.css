@@ -1,0 +1,275 @@
+html {
+    overflow-y: auto;
+}
+/* HEADER FIXO - mas garantindo que não sobreponha */
+body.sobre-nos-page header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* CONTAINER - com margem superior para o header */
+.container {
+    letter-spacing: .05rem;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 3rem;
+    background: rgba(10, 10, 30, 0.85);
+    border: 1px solid rgba(70, 70, 150, 0.4);
+    box-shadow: 0 0 20px rgba(70, 70, 150, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+    margin: 7rem 0;
+}
+
+/* RODAPÉ FIXO */
+body.sobre-nos-page .rodape {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(10, 10, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(70, 70, 150, 0.4);
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 3.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
+    margin-bottom: 1rem;
+    letter-spacing: .3rem;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
+    margin: 1rem 0;
+    letter-spacing: .2rem;
+}
+/* Lista de Integrantes */
+.integrantes-list {
+  list-style: none;
+  padding: 0;
+}
+
+.integrantes-list li {
+  background: rgba(40, 40, 80, 0.4); 
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  border-left: 5px solid #8c8cff; /* Borda de destaque */
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+.integrantes-list li:hover {
+  background: rgba(50, 50, 100, 0.6);
+}
+
+.integrantes-list span {
+  font-weight: bold;
+  color: #00f5ff; /* Ciano Neon para o cargo */
+  margin-left: 10px;
+}
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 700px;
+        padding: 2.5rem;
+        margin: 6rem auto;
+        gap: 1.3rem;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+        letter-spacing: .25rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        letter-spacing: .15rem;
+    }
+
+    .integrantes-list li {
+        font-size: 1.05rem;
+        padding: 9px 14px;
+    }
+}
+
+/* Tablets pequenos e Mobile Landscape (600px - 768px) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 600px;
+        padding: 2rem;
+        margin: 5rem auto;
+        gap: 1.2rem;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        letter-spacing: .2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        letter-spacing: .1rem;
+        margin: 0.8rem 0;
+    }
+
+    .integrantes-list li {
+        font-size: 1rem;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+    }
+
+    .integrantes-list span {
+        margin-left: 8px;
+    }
+}
+
+/* Mobile (480px - 600px) */
+@media (max-width: 600px) {
+    .container {
+        max-width: 500px;
+        padding: 1.5rem;
+        margin: 4rem auto;
+        gap: 1rem;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        letter-spacing: .15rem;
+        margin-bottom: 0.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        letter-spacing: .08rem;
+        margin: 0.6rem 0;
+    }
+
+    .integrantes-list li {
+        font-size: 0.95rem;
+        padding: 7px 10px;
+        margin-bottom: 5px;
+        border-left-width: 4px;
+    }
+
+    .integrantes-list span {
+        margin-left: 6px;
+        display: block; /* Quebra linha em mobile */
+        margin-top: 4px;
+        margin-left: 0;
+    }
+
+    /* Ajuste para o rodapé fixo em mobile */
+    body.sobre-nos-page .rodape {
+        position: relative; /* Muda para relativo em mobile */
+        margin-top: 2rem;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 1.2rem;
+        margin: 100px auto;
+        gap: 0.8rem;
+        width: 92%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: .1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        letter-spacing: .05rem;
+        margin: 0.5rem 0;
+    }
+
+    .integrantes-list li {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+        margin-bottom: 4px;
+        border-left-width: 3px;
+    }
+
+    .integrantes-list span {
+        font-size: 0.85rem;
+        margin-top: 3px;
+    }
+}
+
+/* Telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 1rem;
+        margin: 100px auto ;
+        gap: 0.6rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        letter-spacing: .08rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .integrantes-list li {
+        font-size: 0.85rem;
+        padding: 5px 6px;
+    }
+
+    .integrantes-list span {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+/* Ajustes para telas muito altas */
+@media (min-height: 1000px) {
+    .container {
+        margin: 8rem auto;
+        padding: 4rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .integrantes-list li {
+        font-size: 1.2rem;
+        padding: 12px 18px;
+    }
+}
+
+
+

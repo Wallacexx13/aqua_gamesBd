@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scriptfase1.js" defer></script>
+    <link rel="stylesheet" href="../styles/stylefase1.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="jogo01.js" defer></script>
+    <link rel="icon" href="../img/logo-mundo-novo.ico" type="image/x-icon">
+    <title>Primeira Fase</title>
+</head>
+
+<body>
+    <header>
+        <!-- Barra de navegação -->
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../sobreNos/sobreNos.html">SOBRE</a></li>
+                <li><a href="../mapa-3d/mundo.html">MUNDO ABERTO</a></li>
+                <li><a href="../tutorial/tutorial.html">TUTORIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Seção principal da tela de inicio-->
+    <section class="container">
+        <h2 id="fase-titulo">Fase 1 – Vogais</h2>
+        <!-- Placar -->
+        <div class="pontuacao">🏆 0</div>
+
+        <!-- Área da imagem -->
+        <div class="image-area">
+            <img src="imagens/anel.png" alt="Imagem do desafio">
+        </div>
+
+        <!-- Palavra com lacunas -->
+        <div id="word-display">_ N E L</div>
+
+        <!-- Opções de letras -->
+        <div id="letters-area"></div>
+
+        <!-- Feedback -->
+        <div id="feedback"></div>
+
+        <!-- Botão próxima fase -->
+        <button id="proxima-fase">Próxima Palavra</button>
+
+        
+
+    </section>
+
+
+    <!-- Bg spline-->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.57/build/spline-viewer.js"></script>
+    <spline-viewer class="spline-bg" url="https://prod.spline.design/O3jUWXdlRjWOgWsN/scene.splinecode"></spline-viewer>
+    <!-- rodape da pagina-->
+</body>
+
+</html>
