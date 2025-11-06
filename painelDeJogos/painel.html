@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Jogos</title>
-<<<<<<< HEAD
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/stylePainel.css">
     <link rel="stylesheet" href="../styles/index.css">
+    <link rel="icon" href="../img/logo-mundo-novo.ico" type="image/x-icon">
 
     <style>
         body { 
@@ -36,7 +36,6 @@
         .loading-overlay.hidden {
             opacity: 0;
             pointer-events: none;
-            backdrop-filter: blur(0px);
         }
 
         .loading-ui-container {
@@ -46,346 +45,106 @@
             border: 2px solid #00d4ff;
             border-radius: 8px;
             padding: 25px 30px;
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5), inset 0 0 15px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
             position: relative;
             color: #00d4ff;
-            font-family: 'Orbitron', sans-serif;
             text-shadow: 0 0 8px rgba(0, 212, 255, 0.7);
         }
 
-        .loading-ui-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.8), transparent);
-            animation: sweep 3s ease-in-out infinite;
-        }
+        .progress-bar { height: 10px; border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #00d4ff; width: 0%; transition: 0.4s; }
 
-        @keyframes sweep {
-            0% { top: 0; }
-            50% { top: calc(100% - 3px); }
-            100% { top: 0; }
-        }
-
-        .ui-corner {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-color: #00d4ff;
-            border-style: solid;
-        }
-
-        .ui-corner-top-left { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
-        .ui-corner-top-right { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
-        .ui-corner-bottom-left { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
-        .ui-corner-bottom-right { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-
-        .loading-header {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-            animation: pulse-light 2s infinite;
-        }
-
-        @keyframes pulse-light {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        .loading-text-container {
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            min-height: 1.5em;
-        }
-
-        .blinking-cursor {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .progress-container {
-            width: 100%;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.5);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #00d4ff, #00ffff);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
-            border-radius: 5px;
-            width: 0%;
-            transition: width 0.4s ease-out;
-        }
-
-        .progress-text {
-            font-size: 0.9rem;
-            text-align: center;
-            margin-top: 10px;
-        }
     </style>
 </head>
+
 <body>
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-ui-container">
-            <div class="ui-corner ui-corner-top-left"></div>
-            <div class="ui-corner ui-corner-top-right"></div>
-            <div class="ui-corner ui-corner-bottom-left"></div>
-            <div class="ui-corner ui-corner-bottom-right"></div>
 
-            <div class="loading-header">SISTEMA AQUAGAMES</div>
-            <div class="loading-text-container">
-                <span id="loadingText">> Conectando ao mainframe...</span><span class="blinking-cursor">_</span>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-text" id="progressPercent">0%</div>
-            </div>
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-ui-container">
+        <div class="loading-header">SISTEMA AQUAGAMES</div>
+        <div><span id="loadingText">> Conectando ao mainframe...</span><span class="blinking-cursor">_</span></div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
         </div>
+        <div class="progress-text" id="progressPercent">0%</div>
     </div>
+</div>
 
-    <header>
-=======
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/stylePainel.css">
-    <link rel="stylesheet" href="../styles/index.css">
-    <link rel="icon" href="../img/logo-mundo-novo.ico" type="image/x-icon">
-</head>
-<body>
-    <header>
-        <!-- Barra de navegação -->
->>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
-        <nav class="navbar">
-            <ul class="nav-list">
-                <li><a href="../index.html">HOME</a></li>
-                <li><a href="../sobreNos/sobreNos.html">SOBRE</a></li>
-                <li><a href="../mapa-3d/mundo.html">MUNDO ABERTO</a></li>
-                <li><a href="../tutorial/tutorial.html">TUTORIAL</a></li>
-            </ul>
-        </nav>
-    </header>
-<<<<<<< HEAD
+<header>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="../sobreNos/sobreNos.html">SOBRE</a></li>
+            <li><a href="../mapa-3d/mundo.html">MUNDO ABERTO</a></li>
+            <li><a href="../tutorial/tutorial.html">TUTORIAL</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <div class="games-panel">
-        <h1 class="panel-title">🎮 Painel de Jogos</h1>
-        <div class="games-grid">
-=======
-    <div class="games-panel">
-        <h1 class="panel-title">🎮 Painel de Jogos</h1>
-        
-        <div class="games-grid">
-            <!-- Jogo 1 -->
->>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
-            <div class="game-card" onclick="startGame('VogaisConsoantes')">
-                <div class="game-icon">🔤</div>
-                <h3 class="game-title">Vogais e Consoantes</h3>
-                <p class="game-description">Complete as palavras com as vogais e consoantes corretas!</p>
-                <span class="game-difficulty difficulty-easy">Fácil</span>
-            </div>
+<div class="games-panel">
+    <h1 class="panel-title">🎮 Painel de Jogos</h1>
+    <div class="games-grid">
 
-<<<<<<< HEAD
-=======
-            <!-- Jogo 2 -->
->>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
-            <div class="game-card" onclick="startGame('JunteSílabas')">
-                <div class="game-icon">🔤</div>
-                <h3 class="game-title">Junte as Sílabas</h3>
-                <p class="game-description">Combine as sílabas para formar palavras corretas!</p>
-                <span class="game-difficulty difficulty-medium">Médio</span>
-            </div>
-
-<<<<<<< HEAD
-            <div class="game-card" onclick="startGame('Termo')">
-                <div class="game-icon">🔤</div>
-                <h3 class="game-title">Jogo do Termo</h3>
-                <p class="game-description">Escreva o nome da imagem com as letras disponíveis!</p>
-                <span class="game-difficulty difficulty-hard">Difícil</span>
-            </div>
-
-            <div class="game-card" onclick="startGame('JogoBolinhas')">
-                <div class="game-icon">➗</div>
-                <h3 class="game-title">Conte as Bolinhas</h3>
-                <p class="game-description">Coloque o número de bolinhas corretamente nas caixas!</p>
-                <span class="game-difficulty difficulty-medium">Médio</span>
-            </div>
-
-            <div class="game-card" onclick="startGame('logica')">
-                <div class="game-icon">🧩</div>
-                <h3 class="game-title">Quebra-Cabeça Lógico</h3>
-                <p class="game-description">Resolva puzzles complexos usando lógica e raciocínio.</p>
-                <span class="game-difficulty difficulty-hard">Difícil</span>
-            </div>
-
-            <div class="game-card" onclick="startGame('velocidade')">
-                <div class="game-icon">⚡</div>
-                <h3 class="game-title">Teste de Velocidade</h3>
-                <p class="game-description">Digite as palavras o mais rápido que conseguir!</p>
-                <span class="game-difficulty difficulty-hard">Difícil</span>
-            </div>
+        <div class="game-card" onclick="startGame('VogaisConsoantes')">
+            <div class="game-icon">🔤</div>
+            <h3 class="game-title">Vogais e Consoantes</h3>
+            <p class="game-description">Complete a palavra usando letras certas.</p>
+            <span class="game-difficulty difficulty-easy">Fácil</span>
         </div>
+
+        <div class="game-card" onclick="startGame('JunteSílabas')">
+            <div class="game-icon">🔤</div>
+            <h3 class="game-title">Junte as Sílabas</h3>
+            <p class="game-description">Forme palavras combinando sílabas.</p>
+            <span class="game-difficulty difficulty-medium">Médio</span>
+        </div>
+
+        <div class="game-card" onclick="startGame('Termo')">
+            <div class="game-icon">🔤</div>
+            <h3 class="game-title">Jogo do Termo</h3>
+            <p class="game-description">Descubra a palavra pela imagem.</p>
+            <span class="game-difficulty difficulty-hard">Difícil</span>
+        </div>
+
+        <div class="game-card" onclick="startGame('JogoBolinhas')">
+            <div class="game-icon">➗</div>
+            <h3 class="game-title">Conte as Bolinhas</h3>
+            <p class="game-description">Coloque o número correto!</p>
+            <span class="game-difficulty difficulty-medium">Médio</span>
+        </div>
+
+        <div class="game-card" onclick="startGame('logica')">
+            <div class="game-icon">🧩</div>
+            <h3 class="game-title">Quebra-Cabeça Lógico</h3>
+            <p class="game-description">Desafie seu raciocínio!</p>
+            <span class="game-difficulty difficulty-hard">Difícil</span>
+        </div>
+
     </div>
+</div>
 
-    <script>
-        function startGame(gameType) {
-=======
-            <!-- Jogo 3 -->
-            <div class="game-card" onclick="startGame('Termo')">
-                <div class="game-icon">🔤</div>
-                <h3 class="game-title">Jogo do Termo</h3>
-                <p class="game-description">Escreva o nome da image com as letras disponíveis!</p>
-                <span class="game-difficulty difficulty-hard">Difícil</span>
-            </div>
+<script>
+function startGame(gameType) {
+    if (gameType === 'VogaisConsoantes') window.location.href = '../fase01/index.html';
+    if (gameType === 'JunteSílabas') window.location.href = '../junteSilabas/junteSilabas.html';
+    if (gameType === 'Termo') window.location.href = '../jogoTermo/index.html';
+    if (gameType === 'JogoBolinhas') window.location.href = '../jogoBolinhas/index.html';
+    if (gameType === 'logica') window.location.href = '../logica/index.html';
+}
 
-            <!-- Jogo 4 -->
-            <div class="game-card" onclick="startGame('JogoBolinhas')">
-                <div class="game-icon">➗</div>
-                <h3 class="game-title">Conte as Bolinhas</h3>
-                <p class="game-description">Coloque o numero de bolinhas corretamente nas caixas!</p>
-                <span class="game-difficulty difficulty-medium">Médio</span>
-            </div>
+document.addEventListener('DOMContentLoaded', () => {
+    const fill = document.getElementById('progressFill');
+    const percent = document.getElementById('progressPercent');
+    const overlay = document.getElementById('loadingOverlay');
+    let p = 0;
+    const interval = setInterval(() => {
+        p += 8;
+        if (p >= 100) { p = 100; clearInterval(interval); overlay.classList.add('hidden'); }
+        fill.style.width = p + "%";
+        percent.textContent = p + "%";
+    }, 200);
+});
+</script>
 
-            <!-- Jogo 5 -->
-            <div class="game-card" onclick="startGame('Quebra-Cabeça')">
-                <div class="game-icon">🧩</div>
-                <h3 class="game-title">Quebra-Cabeça Lógico</h3>
-                <p class="game-description">Resolva puzzles complexos usando lógica e raciocínio.</p>
-                <span class="game-difficulty difficulty-easy">Fácil</span>
-            </div>
-
-            <!-- Jogo 6 -->
-            <div class="game-card" onclick="startGame('FormasGeométricas')">
-                <div class="game-icon">🧩</div>
-                <h3 class="game-title">Jogo das Formas Geométricas</h3>
-                <p class="game-description">Encontre e identifique as formas geométricas!</p>
-                <span class="game-difficulty difficulty-medium">Médio</span>
-            </div>
-        </div>
-<!-- ➗🔤 🧩 ❓ -->
-    <script>
-        function startGame(gameType) {
-            
->>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
-            if (gameType === 'VogaisConsoantes') {
-                window.location.href = '../fase01/index.html';
-            } else if (gameType === 'JunteSílabas') {
-                window.location.href = '../junteSilabas/junteSilabas.html';
-            } else if (gameType === 'Termo') {
-<<<<<<< HEAD
-                window.location.href = '../jogoTermo/index.html';
-            } else if (gameType === 'JogoBolinhas') {
-                window.location.href = '../jogoBolinhas/index.html';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.game-card');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.6}s`;
-            });
-
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            const progressFill = document.getElementById('progressFill');
-            const progressPercent = document.getElementById('progressPercent');
-            const loadingText = document.getElementById('loadingText');
-
-            const loadingMessages = [
-                "> Conectando ao mainframe...",
-                "> Carregando recursos do hub...",
-                "> Verificando módulos de jogo...",
-                "> Calibrando interface...",
-                "> Sequência de inicialização quase completa..."
-            ];
-            let msgIndex = 0;
-            let simulationProgress = 0;
-
-            let isPageLoaded = false;
-            let isMinTimePassed = false;
-            const MIN_LOADING_TIME = 3000;
-
-            function updateProgress(value) {
-                if (!progressFill || !progressPercent) return;
-                let progress = Math.min(value, 100);
-                progressFill.style.width = progress + '%';
-                progressPercent.textContent = Math.round(progress) + '%';
-            }
-
-            function attemptToHideLoading() {
-                if (isPageLoaded && isMinTimePassed) {
-                    if (!loadingOverlay) return;
-                    clearInterval(simulationInterval);
-                    updateProgress(100);
-                    loadingText.textContent = "> SISTEMA ONLINE. BEM-VINDO.";
-                    setTimeout(() => {
-                        loadingOverlay.classList.add('hidden');
-                        setTimeout(() => loadingOverlay.style.display = 'none', 500);
-                    }, 700);
-                }
-            }
-
-            const simulationInterval = setInterval(() => {
-                simulationProgress += Math.random() * 20;
-                if (simulationProgress >= 90) {
-                    simulationProgress = 90;
-                    if (!isMinTimePassed) clearInterval(simulationInterval);
-                }
-                updateProgress(simulationProgress);
-                if (simulationProgress > (msgIndex * 18) && msgIndex < loadingMessages.length) {
-                    loadingText.textContent = loadingMessages[msgIndex];
-                    msgIndex++;
-                }
-            }, 500);
-
-            window.addEventListener('load', () => {
-                isPageLoaded = true;
-                attemptToHideLoading();
-            });
-
-            setTimeout(() => {
-                isMinTimePassed = true;
-                if (simulationProgress === 90) clearInterval(simulationInterval);
-                attemptToHideLoading();
-            }, MIN_LOADING_TIME);
-        });
-    </script>
 </body>
 </html>
-=======
-                window.location.href = '../JogoTermo/index.html';
-            } else if (gameType === 'JogoBolinhas') {
-                window.location.href = '../jogoBolinhas/index.html';
-            } else if (gameType === 'Quebra-Cabeça') {
-                window.location.href = '../quebra_cabeca/index.html';
-            }else if (gameType === 'FormasGeométricas') {
-                window.location.href = '../geometricas/geometricos.html';
-            }
-        }
-
-
-        // Efeitos visuais adicionais
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.game-card');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-        });
-    </script>
-</body>
-</html>
->>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
