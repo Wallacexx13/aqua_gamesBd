@@ -76,6 +76,10 @@ a {
   width: 100%;
   min-height: 100vh;
   z-index: -1;
+<<<<<<< HEAD
+=======
+  top: 0;
+>>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
 }
 
 /* ===== RODAPÉ - Estilo Neon Sutil ===== */

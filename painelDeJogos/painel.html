@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Jogos</title>
+<<<<<<< HEAD
     
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/stylePainel.css">
@@ -161,6 +162,16 @@
     </div>
 
     <header>
+=======
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/stylePainel.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="icon" href="../img/logo-mundo-novo.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <!-- Barra de navegação -->
+>>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
         <nav class="navbar">
             <ul class="nav-list">
                 <li><a href="../index.html">HOME</a></li>
@@ -170,10 +181,18 @@
             </ul>
         </nav>
     </header>
+<<<<<<< HEAD
 
     <div class="games-panel">
         <h1 class="panel-title">🎮 Painel de Jogos</h1>
         <div class="games-grid">
+=======
+    <div class="games-panel">
+        <h1 class="panel-title">🎮 Painel de Jogos</h1>
+        
+        <div class="games-grid">
+            <!-- Jogo 1 -->
+>>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
             <div class="game-card" onclick="startGame('VogaisConsoantes')">
                 <div class="game-icon">🔤</div>
                 <h3 class="game-title">Vogais e Consoantes</h3>
@@ -181,6 +200,10 @@
                 <span class="game-difficulty difficulty-easy">Fácil</span>
             </div>
 
+<<<<<<< HEAD
+=======
+            <!-- Jogo 2 -->
+>>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
             <div class="game-card" onclick="startGame('JunteSílabas')">
                 <div class="game-icon">🔤</div>
                 <h3 class="game-title">Junte as Sílabas</h3>
@@ -188,6 +211,7 @@
                 <span class="game-difficulty difficulty-medium">Médio</span>
             </div>
 
+<<<<<<< HEAD
             <div class="game-card" onclick="startGame('Termo')">
                 <div class="game-icon">🔤</div>
                 <h3 class="game-title">Jogo do Termo</h3>
@@ -220,11 +244,50 @@
 
     <script>
         function startGame(gameType) {
+=======
+            <!-- Jogo 3 -->
+            <div class="game-card" onclick="startGame('Termo')">
+                <div class="game-icon">🔤</div>
+                <h3 class="game-title">Jogo do Termo</h3>
+                <p class="game-description">Escreva o nome da image com as letras disponíveis!</p>
+                <span class="game-difficulty difficulty-hard">Difícil</span>
+            </div>
+
+            <!-- Jogo 4 -->
+            <div class="game-card" onclick="startGame('JogoBolinhas')">
+                <div class="game-icon">➗</div>
+                <h3 class="game-title">Conte as Bolinhas</h3>
+                <p class="game-description">Coloque o numero de bolinhas corretamente nas caixas!</p>
+                <span class="game-difficulty difficulty-medium">Médio</span>
+            </div>
+
+            <!-- Jogo 5 -->
+            <div class="game-card" onclick="startGame('Quebra-Cabeça')">
+                <div class="game-icon">🧩</div>
+                <h3 class="game-title">Quebra-Cabeça Lógico</h3>
+                <p class="game-description">Resolva puzzles complexos usando lógica e raciocínio.</p>
+                <span class="game-difficulty difficulty-easy">Fácil</span>
+            </div>
+
+            <!-- Jogo 6 -->
+            <div class="game-card" onclick="startGame('FormasGeométricas')">
+                <div class="game-icon">🧩</div>
+                <h3 class="game-title">Jogo das Formas Geométricas</h3>
+                <p class="game-description">Encontre e identifique as formas geométricas!</p>
+                <span class="game-difficulty difficulty-medium">Médio</span>
+            </div>
+        </div>
+<!-- ➗🔤 🧩 ❓ -->
+    <script>
+        function startGame(gameType) {
+            
+>>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc
             if (gameType === 'VogaisConsoantes') {
                 window.location.href = '../fase01/index.html';
             } else if (gameType === 'JunteSílabas') {
                 window.location.href = '../junteSilabas/junteSilabas.html';
             } else if (gameType === 'Termo') {
+<<<<<<< HEAD
                 window.location.href = '../jogoTermo/index.html';
             } else if (gameType === 'JogoBolinhas') {
                 window.location.href = '../jogoBolinhas/index.html';
@@ -303,3 +366,26 @@
     </script>
 </body>
 </html>
+=======
+                window.location.href = '../JogoTermo/index.html';
+            } else if (gameType === 'JogoBolinhas') {
+                window.location.href = '../jogoBolinhas/index.html';
+            } else if (gameType === 'Quebra-Cabeça') {
+                window.location.href = '../quebra_cabeca/index.html';
+            }else if (gameType === 'FormasGeométricas') {
+                window.location.href = '../geometricas/geometricos.html';
+            }
+        }
+
+
+        // Efeitos visuais adicionais
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.game-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 39c8a149dec38b7df2d9205624a23538b34676bc

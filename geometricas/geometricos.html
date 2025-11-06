@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/styleGeometricas.css">
+  <link rel="icon" href="../img/logo-mundo-novo.ico" type="image/x-icon">
+  <title>Document</title>
+</head>
+
+<body>
+<header>
+        <!-- Barra de navegação -->
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../sobreNos/sobreNos.html">SOBRE</a></li>
+                <li><a href="../mapa-3d/mundo.html">MUNDO ABERTO</a></li>
+                <li><a href="../tutorial/tutorial.html">TUTORIAL</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+  <div id="container-imagem">
+     <h1>Jogo das Formas Geométricas</h1>
+    <img id="imagem1" src="imagens/parque.jpg" onclick="verificarClique(event, faseAtual)" style="cursor: pointer;" alt="Imagem com formas">
+    <div id="feedback"></div>
+  </div>
+  <div id="formas-cont">
+    <img src="imagens/circulo.png" alt="circulo">
+    <img src="imagens/quadrado.png" alt="quadrado">
+    <img src="imagens/retangulo.png" alt="retangulo">
+    <img src="imagens/losango.png" alt="losango">
+    <img src="imagens/cilindro.png" alt="cilindro">
+    <img src="imagens/triangulo.png" alt="triangulo">
+  </div>
+  <button id="btnDica" disabled>Dica (0 restantes)</button>
+  <button id="btnProximaFase" style="display:none;">Próxima Fase</button>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.96/build/spline-viewer.js"></script>
+  <spline-viewer class="spline-bg" url="https://prod.spline.design/wR3NiSfKvMfHLkFv/scene.splinecode"></spline-viewer>
+  <script src="formas.js"></script>
+</body>
+
+</html>
