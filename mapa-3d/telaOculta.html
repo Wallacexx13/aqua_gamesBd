@@ -107,7 +107,7 @@
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
             border-radius: 5px;
             width: 0%;
-            transition: width 0.4s ease-out;
+            transition: width 0.05s linear; /* Transição linear rápida */
         }
         .progress-text {
             font-size: 0.9rem;
@@ -283,7 +283,7 @@
             <div class="ui-corner ui-corner-bottom-left"></div>
             <div class="ui-corner ui-corner-bottom-right"></div>
 
-            <div class="loading-header" dir="rtl">iniciando navegação</div>
+            <div class="loading-header">SIMULAÇÃO DE PILOTO</div>
             
             <div class="loading-text-container">
                 <span id="loadingText">> Carregando motor 3D...</span><span class="blinking-cursor">_</span>
@@ -296,11 +296,10 @@
                 <div class="progress-text" id="progressPercent">0%</div>
             </div>
         </div>
-        
     </div>
 
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.92/build/spline-viewer.js"></script>
-    <spline-viewer id="game-spline" url="https://prod.spline.design/yXKQByWbScZWYDYg/scene.splinecode"></spline-viewer>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.98/build/spline-viewer.js"></script>
+    <spline-viewer id="game-spline" url="https://prod.spline.design/2TmM4F1MssM5A7nI/scene.splinecode"></spline-viewer>
 
     <div id="game-over-screen">
         <div class="game-over-ui-container">
@@ -341,8 +340,8 @@
             let startTime;
             let timerInterval;
             let finalElapsedTime = 0; 
-
-            // ===== 4. LÓGICA DO LOADING =====
+            
+            // ===== 4. LÓGICA DO LOADING (SIMULAÇÃO) =====
             const loadingMessages = [
                 "> Carregando motor 3D...",
                 "> Compilando shaders da nave...",
@@ -352,6 +351,10 @@
             ];
             let msgIndex = 0;
             let simulationProgress = 0;
+            const TOTAL_LOAD_TIME = 5000; // 5 segundos de simulação
+            const INTERVAL_TIME = 50;     // Atualiza a cada 50ms (0.05s)
+            // (100% / (5000ms / 50ms)) = 1% por passo
+            const PROGRESS_PER_STEP = 1;  
 
             function updateProgress(value) {
                 if (!progressFill || !progressPercent) return;
@@ -371,23 +374,8 @@
                     }, 500); // Tempo da transição CSS
                 }, 700); // Tempo para ler a msg final
             }
-
-            // Simulação de progresso inicial
-            const simulationInterval = setInterval(() => {
-                simulationProgress += Math.random() * 20; 
-                if (simulationProgress >= 90) {
-                    simulationProgress = 90; // Trava em 90%
-                    clearInterval(simulationInterval);
-                }
-                updateProgress(simulationProgress);
-
-                if (simulationProgress > (msgIndex * 18) && msgIndex < loadingMessages.length) {
-                    loadingText.textContent = loadingMessages[msgIndex];
-                    msgIndex++;
-                }
-            }, 400); // A cada 400ms
-
-            // ===== 5. LÓGICA DO TIMER =====
+            
+            // ===== 5. LÓGICA DO TIMER DO JOGO =====
             function formatTime(ms) {
                 let elapsed = new Date(ms);
                 let minutes = String(elapsed.getUTCMinutes()).padStart(2, '0');
@@ -397,7 +385,7 @@
             }
 
             function startTimer() {
-                console.log("Jogo carregado, iniciando timer em background!");
+                console.log("Simulação de loading terminada. Iniciando timer do jogo.");
                 startTime = Date.now();
                 timerInterval = setInterval(() => {
                     finalElapsedTime = Date.now() - startTime;
@@ -410,22 +398,35 @@
                 gameOverScreen.style.display = 'flex';
             }
 
-            // ===== 6. OUVINTES DE EVENTOS (O Ponto Central) =====
+            // ===== 6. INICIAR A SIMULAÇÃO DE LOADING =====
+            // Não espera mais pelo Spline, apenas simula por 5 segundos
+            
+            const simulationInterval = setInterval(() => {
+                simulationProgress += PROGRESS_PER_STEP; // Adiciona 1%
 
-            // Ouve quando o Spline TERMINOU de carregar
-            splineViewer.addEventListener('load', () => {
-                console.log("Spline carregado! Escondendo loading e iniciando timer.");
+                if (simulationProgress >= 100) {
+                    // --- FIM DA SIMULAÇÃO ---
+                    simulationProgress = 100;
+                    clearInterval(simulationInterval); // Para a simulação
+                    updateProgress(simulationProgress);
+                    
+                    hideLoading();  // Esconde o loading
+                    startTimer();   // Inicia o timer do JOGO
                 
-                // 1. Termina o loading
-                clearInterval(simulationInterval);
-                updateProgress(100);
-                hideLoading();
+                } else {
+                    // --- DURANTE A SIMULAÇÃO ---
+                    updateProgress(simulationProgress);
+                    
+                    // Atualiza a mensagem de texto (a cada 20%)
+                    if (simulationProgress % 20 === 0 && msgIndex < loadingMessages.length) {
+                        loadingText.textContent = loadingMessages[msgIndex];
+                        msgIndex++;
+                    }
+                }
+            }, INTERVAL_TIME); // Roda a cada 50ms
 
-                // 2. Inicia o jogo
-                startTimer();
-            });
-
-            // Ouve por eventos VINDOS do Spline (Game Over)
+            // ===== 7. OUVINTE DE EVENTO DO JOGO (Game Over) =====
+            // Este é o único ouvinte do Spline que resta
             splineViewer.addEventListener('splineEvent', (e) => {
                 if (e.detail.name === 'game_over') {
                     console.log("Evento 'game_over' recebido!");
